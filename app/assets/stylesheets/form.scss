@@ -1,0 +1,65 @@
+.form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+.form > * {
+    align-self: center;
+}
+
+.input-header {
+    text-align: left;
+}
+
+.large-button {
+    width: 408px;
+    height: 16px;
+    padding: 14px;
+    text-decoration: none;
+    border-radius: 500px;
+    align-content: center;
+}
+
+.small-button {
+    color: white;
+    width: 182px;
+    height: 14px;
+    padding: 14px;
+    align-content: center;
+    border-radius: 500px;
+}
+
+#demo-user {
+    background-color: black;
+    color: white;
+}
+
+#demo-user:hover {
+    background-color: rgb(45, 45, 45);
+    color: white;
+}
+
+#signup {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+}
+
+#signup:hover {
+    color: white;
+    background-color: gray;
+}
+
+#login {
+    background-color: #1DB954;
+}
+
+#login:hover {
+    background-color: #26db65;
+}
+
+input {
+    width: 100%;
+}
