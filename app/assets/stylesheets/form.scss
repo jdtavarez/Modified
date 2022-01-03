@@ -2,7 +2,6 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    max-width: 500px;
 }
 
 .form > * {
@@ -41,6 +40,20 @@
     color: white;
 }
 
+#demo-user-fb {
+    text-decoration: none;
+    background-color: rgb(48, 133, 243);
+    color: white;
+}
+
+#demo-user-fb:hover {
+    text-decoration: none;
+    background-color: rgb(82, 157, 254);
+    size: 105%;
+    color: white;
+}
+
+
 #signup {
     border: 2px solid gray;
     color: gray;
@@ -53,6 +66,7 @@
 }
 
 #login {
+    align-self: center;
     background-color: #1DB954;
 }
 
@@ -61,5 +75,5 @@
 }
 
 input {
-    width: 100%;
+    width: 422px;
 }

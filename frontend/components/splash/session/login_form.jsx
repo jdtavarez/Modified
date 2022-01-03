@@ -5,7 +5,7 @@ export default class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: "",
+            username: "",
             password: ""
         };
 
@@ -34,7 +34,7 @@ export default class LoginForm extends React.Component {
                     {errors}
                     <Link className="large-button" id="demo-user"  to="/signup">CONTINUE WITH DEMO USER</Link>
                     <label className="input-header">Email address or username</label>
-                    <input type="text" value={this.state.id} onChange={this.updateInput} name="user[id]"/>
+                    <input type="text" value={this.state.username} onChange={this.updateInput} name="user[username]"/>
                     <label className="input-header">Password</label>
                     <input type="text" value={this.state.password} onChange={this.updateInput} name="user[password]"/>
                     

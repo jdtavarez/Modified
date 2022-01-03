@@ -6,6 +6,7 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS"
 
 export const login = (user) => (dispatch) => (
     SessionAPIUtil.login(user).then(response => {
+        debugger
         (response instanceof Array) ? 
         dispatch(receiveErrors(response)) :
         dispatch(receiveCurrentUser(response))    
