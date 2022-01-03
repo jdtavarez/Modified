@@ -12,6 +12,7 @@ export default class NavBar extends React.Component {
                 <div>LOGO</div>
                 <div id="links">
                     <p>|</p>
+                    <p>{this.props.currentUser.username}</p>
                     <button onClick={this.props.logout}>logout</button>
                 </div>
             </nav>
