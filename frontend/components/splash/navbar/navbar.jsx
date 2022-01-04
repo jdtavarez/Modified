@@ -8,27 +8,30 @@ export default class NavBar extends React.Component {
 
     render() {
         const nav_display = this.props.currentUser ? (
-            <nav>
-                <div>LOGO</div>
-                <div id="links">
-                    <p>|</p>
-                    <p>{this.props.currentUser.username}</p>
-                    <button onClick={this.props.logout}>logout</button>
+            <div className="splash-links">
+                <p className="divider">|</p>
+                <div className="profile-container">
+                    <i className="far fa-user"></i>
+                    <p>Profile</p>
                 </div>
-            </nav>
+                <button onClick={this.props.logout}>logout</button>
+            </div>
         ) : (
-            <nav>
-                <div>LOGO</div>
-                <div id="links">
-                    <p className="divider">|</p>
-                    <Link to="/signup" className="nav-link">Sign up</Link>
-                    <Link to="/login" className="nav-link">Log in</Link>
-                </div>
-            </nav>
+            <div className="splash-links">
+                <p className="divider">|</p>
+                <Link to="/signup" className="nav-link">Sign up</Link>
+                <Link to="/login" className="nav-link">Log in</Link>
+            </div>
         )
         return (
             <header>
-                {nav_display}
+                <nav id="nav-bar">
+                    <div className="splash-logo-container">
+                        <img src={window.logoWhite} alt="modified logo" id="splash-logo" />
+                        <p id="logo">Modified</p>
+                    </div>
+                    {nav_display}
+                </nav>
             </header>
         )
     }

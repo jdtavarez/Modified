@@ -1,0 +1,272 @@
+.signup-form {
+    width: 475px;
+}
+
+#signup-login:hover {
+    color: white;
+    background-color: rgb(97,100,103);
+}
+
+#sign-up-fb {
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    height: 18px;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 500px;
+    text-decoration: none;
+    background-color: rgb(7, 115, 255);
+    color: white;
+    justify-content: center;
+    transition: background-color .25s ease;
+    transition: transform .25s ease;
+    width: 200px;
+    text-align: center;
+}
+
+#sign-up-fb:hover {
+    text-decoration: none;
+    background-color: rgb(29, 127, 255);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#signup-fb-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.signup-form-entries {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.signup-form-entries > * {
+    margin-bottom: 8px;
+}
+
+.birth-select-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.birth-select-box > * {
+    margin-top: 5px;
+}
+
+.birth-select-box > label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#birth-boxes {
+    display: flex;
+    justify-content: space-between;
+}
+
+#month-input {
+    width: 180px;
+}
+
+#day-input {
+    width: 40px;
+}
+
+#year-input {
+    width: 80px;
+}
+
+#gender-select-box {
+    margin-top: 10px;
+    display: flex;
+}
+
+// #gender-select-box > * {
+//     font-size: 14px;
+//     margin-right: 10px;
+// }
+
+#gender-select-radio {
+    display: flex;
+    width: 22%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#gender-select-radio > p {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.signup-input {
+    height: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    
+    padding: 14px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.signup-input.signup-error {
+    border: 1px solid rgb(233,20,41);
+}
+
+.signup-input:focus {
+    outline: 2px solid black;
+}
+
+.signup-input.signup-error:focus {
+    border: 1px solid rgb(233,20,41);
+    outline: 2px solid rgb(233,20,41);
+}
+
+.signup-input::placeholder {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#signup {
+    width: 112px;
+    height: 48px;
+    padding: 16px;
+    border-style: none;
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgb(31,223,100);
+    color: black;
+    transition: background-color .25s ease;
+    transition: transform .25s ease;
+}
+
+#signup:hover {
+    background-color: rgb(36, 241, 111);
+    color: black;
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.signup-input-header {
+    color: rgb(34,35,38);   
+    font-size: 14px;
+}
+
+.signup-form-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.signup-form-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    align-items: center;
+}
+
+#signup-logo {
+    font-size: 24px;
+    margin-left: 6px;
+}
+
+#signup-form-logo {
+    width: 15%;
+}
+
+#signup-form-logo > img {
+    margin-bottom: 10px;
+    align-self: center;
+    width: 100%;
+}
+
+#signup-option-divider {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#signup-option-divider > span {
+    position: relative;
+    display: inline-block;
+}
+
+#signup-option-divider > span:before,
+#signup-option-divider > span:after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    top: 50%;
+    height: 1px;
+    background: rgb(217,218,220);
+}
+
+#signup-option-divider > span:before {
+    right: 100%;
+}
+
+#signup-option-divider > span:after {
+    left: 100%;
+}
+
+span {
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(127,127,127);
+    letter-spacing: 2px;
+    width: 15%;
+}
+
+.signup-h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.signup-h3 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signup-submit-area {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.input-messaging {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#login-link {
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+}
+
+#login-link a {
+    color: rgb(31,223,100);
+}
+
+#login-link a:hover {
+    color: rgb(36, 241, 111);
+}
+
+.input-messaging-error {
+    color: rgb(233,20,41);
+}
