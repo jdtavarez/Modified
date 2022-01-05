@@ -77,7 +77,7 @@ export default class SignUpForm extends React.Component {
             case "confirm_email":
                 if (e.target.value === '') {
                     _errorTrue();
-                    error_messages[category] = "You need to enter your email."
+                    error_messages[category] = "You need to confirm your email."
                     break;
                 } else if (e.target.value !== this.state.email) {
                     _errorTrue();
@@ -174,7 +174,7 @@ export default class SignUpForm extends React.Component {
         const password_error = this.errors.password ? <p className="input-messaging input-messaging-error"><i className="fas fa-times"></i>{this.error_messages.password}</p> : "" ;
 
         const username_text = this.errors.username ? 
-            <p className="input-messaging input-messaging-error"><i className="fas fa-times"></i>{this.error_messages.username}</p> : 
+        <p className="input-messaging input-messaging-error"><i className="fas fa-times"></i>{this.error_messages.username}</p> : 
         <p className="input-messaging ">This appears on your profile.</p>;
 
         const month_error = this.errors.month ? <p className="input-messaging input-messaging-error"><i className="fas fa-times"></i>{this.error_messages.month}</p> : "";
