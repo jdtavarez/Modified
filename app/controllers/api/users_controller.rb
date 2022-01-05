@@ -1,7 +1,5 @@
 class Api::UsersController < ApplicationController
 
-    skip_before_action :verify_authenticity_token
-
     def create
         @user = User.new(user_params)
         @user.birthday = "#{bday_params[:month]}/#{bday_params[:day]}/#{bday_params[:year]}"
