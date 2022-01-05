@@ -61,7 +61,7 @@ export default class LoginForm extends React.Component {
 
         return (
             <div className="form-container">
-
+                {window.authToken}
                 <div className='form-header'>
                     <div className="form-logo-container">
                         <Link id="form-logo" to="/">

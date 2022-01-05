@@ -184,7 +184,7 @@ export default class SignUpForm extends React.Component {
 
         return (
             <div className="signup-form-container">
-
+                {window.authToken}
                 <div className='signup-form-header'>
                     <div className="form-logo-container">
                         <Link id="signup-form-logo" to="/">
