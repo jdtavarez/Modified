@@ -172,7 +172,7 @@ export default class SignUpForm extends React.Component {
             return (entry + '@')
         }
         const entry = _makeEntry();
-        this.setState({username: entry, email: entry, confirm_email: entry, password: entry, gender: "Non-binary", birthday: "01/01/1901", month: "01", day: "01", year: "1901"}).then(() => this.props.processForm(this.state));
+        this.props.processForm({username: entry, email: entry, confirm_email: entry, password: entry, gender: "Non-binary", birthday: "01/01/1901", month: "01", day: "01", year: "1901"});
     }
 
     componentWillUnmount() {
@@ -212,7 +212,7 @@ export default class SignUpForm extends React.Component {
                     <h2 className="signup-h2">Sign up for free to start listening.</h2>
 
                     <div id="signup-fb-container">
-                        <Link onClick={this.signUpDemoUser} onBlur={this.handleSubmit} id="sign-up-fb" >Sign up as Demo user</Link>
+                        <Link onClick={this.signUpDemoUser} id="sign-up-fb" >Sign up as Demo user</Link>
                     </div>
 
                     <div id="signup-option-divider">
