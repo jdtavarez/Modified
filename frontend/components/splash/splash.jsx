@@ -8,7 +8,7 @@ export default () => (
                 <h3>MODIFIED FREE</h3>
                 <h1>Listening is everything</h1>
                 <h2>Millions of songs and podcasts. No credit card needed.</h2>
-                <Link to="/web">GET MODIFIED FREE</Link>
+                <Link id="weblink" to="/web">GET MODIFIED FREE</Link>
             </div>
         </main>
         <footer>

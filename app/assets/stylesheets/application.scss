@@ -34,8 +34,7 @@
 
  .splash {
    height: 100%;
-   background-image: image_url('/bg/bg.jpg');
-   background-size: cover;
+   background: radial-gradient(circle at top, rgba(255, 255, 255, 0.8) 0, rgba(255, 100, 100, 0.8) 0%, rgba(255, 249, 74, 0.8)  50%, rgba(255, 86, 86, 0.8)  100%);
  }
 
   .webplayer-header {
@@ -49,7 +48,13 @@
    padding: 30px;
  }
 
+ .container {
+   -webkit-transform:scale(1.0);
+   transform: scale(1.0);
+ }
+
  .container > * {
+   color: rgb(255, 85, 116);
    margin-top: 3%;
  }
 
@@ -70,18 +75,16 @@
     padding: 16px;
     padding-left: 22px;
     padding-right: 22px;
-    background-color: black;
+    background-color: rgb(255, 85, 116);
     font-size: 12px;
     border-radius: 500px;
     color: white;
     letter-spacing: 1px;
-    transition: transform .25s ease;
-    transition: background-color .25s ease;
+    transition: all .25s ease;
  }
 
- .webplayer-header a:hover {
-    transform: scale(1.2);
-    background-color: rgb(47, 47, 47);
+ .webplayer-header a#weblink:hover {
+    background-color: rgb(255, 114, 140);
     cursor: pointer;
  }
 
