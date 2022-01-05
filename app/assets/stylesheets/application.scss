@@ -34,8 +34,15 @@
  #splash {
    width: 100%;
    height: 100%;
-   background-image: image_url('/assets/bg/bg.png');
+  //  background-image: image_url('/assets/bg/bg.png');
  }
+
+ #web-player-header {
+   height: 100%;
+   width: 100%;
+    color: red;
+    font-size: 300px;
+}
 
  #app-container {
    width: 100%;
