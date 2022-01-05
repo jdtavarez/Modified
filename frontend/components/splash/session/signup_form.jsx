@@ -10,7 +10,6 @@ export default class SignUpForm extends React.Component {
             username: "",
             password: "",
             gender: "",
-            birthday: "",
             month: "",
             day: "",
             year: "",
@@ -42,7 +41,6 @@ export default class SignUpForm extends React.Component {
         this.errorsHelper = this.errorsHelper.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.updateInput = this.updateInput.bind(this)
-        this.configureBirthday = this.configureBirthday.bind(this)
         this.handleDate = this.handleDate.bind(this)
     }
 
@@ -142,6 +140,7 @@ export default class SignUpForm extends React.Component {
     }
 
     handleSubmit(e) {
+        
         e.preventDefault();
         const errorsArr = Object.keys(this.state);
         errorsArr.forEach((category) => {
@@ -160,11 +159,6 @@ export default class SignUpForm extends React.Component {
     handleDate(e) {
         this.updateInput(e)
         this.errorsHelper(e)
-    }
-
-    configureBirthday() {
-        const bday = `${this.state.month}/${this.state.day}/${this.state.year}`;
-        this.setState({ ["birthday"]: bday });
     }
 
     componentWillUnmount() {
@@ -268,7 +262,7 @@ export default class SignUpForm extends React.Component {
 
                             <div className="birth-select-box">
                                 <label> Year</label>
-                                <input className="signup-input" id="year-input" placeholder="YYYY" type="text" onBlur={this.handleDate} onChange={this.configureBirthday} name="user[year]" />
+                                <input className="signup-input" id="year-input" placeholder="YYYY" type="text" onBlur={this.handleDate} onChange={this.configureBirthday}  name="user[year]" />
                             </div>
                         </div>
                         {month_error}

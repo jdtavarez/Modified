@@ -1,7 +1,5 @@
 class Api::SessionsController < ApplicationController
 
-    skip_before_action :verify_authenticity_token
-
     before_action :require_logged_in, only: [:destroy]
 
     def create 
