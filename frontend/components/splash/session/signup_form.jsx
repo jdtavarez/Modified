@@ -42,6 +42,7 @@ export default class SignUpForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.updateInput = this.updateInput.bind(this)
         this.handleDate = this.handleDate.bind(this)
+        this.signUpDemoUser = this.signUpDemoUser.bind(this)
     }
 
     errorsHelper(e) {
@@ -140,7 +141,6 @@ export default class SignUpForm extends React.Component {
     }
 
     handleSubmit(e) {
-        
         e.preventDefault();
         const errorsArr = Object.keys(this.state);
         errorsArr.forEach((category) => {
@@ -159,6 +159,20 @@ export default class SignUpForm extends React.Component {
     handleDate(e) {
         this.updateInput(e)
         this.errorsHelper(e)
+    }
+
+    signUpDemoUser(e) {
+        e.preventDefault();
+        function _makeEntry() {
+            let entry = ''
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            for (let i = 0; i < 7; i++) {
+                entry += chars.charAt(Math.floor(Math.random()*chars.length));
+            }
+            return (entry + '@')
+        }
+        const entry = _makeEntry();
+        this.setState({username: entry, email: entry, confirm_email: entry, password: entry, gender: "Non-binary", birthday: "01/01/1901", month: "01", day: "01", year: "1901"}).then(() => this.props.processForm(this.state));
     }
 
     componentWillUnmount() {
@@ -198,7 +212,7 @@ export default class SignUpForm extends React.Component {
                     <h2 className="signup-h2">Sign up for free to start listening.</h2>
 
                     <div id="signup-fb-container">
-                        <Link id="sign-up-fb" to="/signup">Sign up with Facebook</Link>
+                        <Link onClick={this.signUpDemoUser} onBlur={this.handleSubmit} id="sign-up-fb" >Sign up as Demo user</Link>
                     </div>
 
                     <div id="signup-option-divider">
@@ -216,7 +230,7 @@ export default class SignUpForm extends React.Component {
                     
                     <div className="signup-form-entries">
                         <label className="signup-input-header">Confirm your email</label>
-                        <input className="signup-input" placeholder="Enter your email again." type="text" name="user[confirm_email]" onChange={this.updateInput} onBlur={this.errorsHelper}/>
+                        <input className="signup-input" placeholder="Enter your email again." type="text" value={this.state.confirm_email} name="user[confirm_email]" onChange={this.updateInput} onBlur={this.errorsHelper}/>
                         {confirm_email_error}
                     </div>
 
