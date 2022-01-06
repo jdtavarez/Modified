@@ -108,7 +108,7 @@ export default class LoginForm extends React.Component {
                         {password_error}
                     </div>
 
-                    <a hidden className="forgot-password" href="#">Forgot your password?</a>
+                    
                     
                     <div className="login-submit-area">
                         <label id="remember-box">
