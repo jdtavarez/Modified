@@ -9,9 +9,9 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
-    has_one_attached :avatar, service: :s3
+    has_one_attached :avatar
 
-    has_many :playlists, as :creatable
+    has_many :playlists, as: :creator
 
     def self.find_by_credentials(id, password)
         user_ =  User.where(username: id).or(User.where(email: id))[0]

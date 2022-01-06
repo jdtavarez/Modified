@@ -17,6 +17,6 @@ class Artist < ApplicationRecord
     through: :category, 
     source: :songs
 
-    has_many :playlists, as :creatable
+    has_many :playlists, as: :creator
 
 end

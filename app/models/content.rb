@@ -1,8 +1,9 @@
-class Song < ApplicationRecord
+class Content < ApplicationRecord
 
     has_one_attached :media
 
     validates :title, :length, :artist_id, :album_id, presence: true
+    validates :content_type, presence: true, inclusion: { in: %w(podcast music) }
     validates :description
 
     belongs_to :category, 

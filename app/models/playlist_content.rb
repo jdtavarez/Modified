@@ -6,8 +6,8 @@ class PlaylistContent < ApplicationRecord
     foreign_key: :playlist_id,
     class_name: :Playlist
 
-    belongs_to :songs,
-    foreign_key: :album_id, 
-    class_name: :Song
+    belongs_to :content,
+    foreign_key: :content_id, 
+    class_name: :Content
     
 end
