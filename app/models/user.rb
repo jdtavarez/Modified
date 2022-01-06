@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+    has_many :playlists, as :creatable
+
     def self.find_by_credentials(id, password)
         user_ =  User.where(username: id).or(User.where(email: id))[0]
         user = User.find(user_.id) if user_
