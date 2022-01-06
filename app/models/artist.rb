@@ -1,5 +1,7 @@
 class Artist < ApplicationRecord
 
+    has_one_attached :avatar, service: :s3
+
     validates :artist_name, presence: true
     validates :bio
 
@@ -10,6 +12,10 @@ class Artist < ApplicationRecord
     has_many :songs,
     foreign_key: :artist_id, 
     class_name: :Song
+
+    has_many :categories,
+    through: :category, 
+    source: :songs
 
     has_many :playlists, as :creatable
 

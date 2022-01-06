@@ -1,7 +1,13 @@
 class Song < ApplicationRecord
 
+    has_one_attached :media
+
     validates :title, :length, :artist_id, :album_id, presence: true
     validates :description
+
+    belongs_to :category, 
+    foreign_key: :category_id,
+    class_name: :Category
 
     belongs_to :album,
     foreign_key: :album_id, 
