@@ -34,7 +34,7 @@
 
  .splash {
    height: 100%;
-   background: radial-gradient(circle at top, rgba(255, 255, 255, 0.8) 0, rgba(255, 100, 100, 0.8) 0%, rgba(255, 249, 74, 0.8)  50%, rgba(255, 86, 86, 0.8)  100%);
+   background: radial-gradient(circle at top, rgba(152, 132, 202, 0.8) 20%, rgba(0, 119, 255, 0.8)  55%, rgba(255, 0, 0, 0.8)  100%);
  }
 
   .webplayer-header {
@@ -42,19 +42,15 @@
  }
 
  .webplayer-header > * {
-   margin-left: 5%;
+   margin-left: min(6%);
+   margin-left: max(8%);
    font-weight: 700;
    font-size: 50px;
    padding: 30px;
  }
 
- .container {
-   -webkit-transform:scale(1.0);
-   transform: scale(1.0);
- }
-
  .container > * {
-   color: rgb(255, 85, 116);
+   color: rgb(223, 255, 118);
    margin-top: 3%;
  }
 
@@ -75,16 +71,16 @@
     padding: 16px;
     padding-left: 22px;
     padding-right: 22px;
-    background-color: rgb(255, 85, 116);
+    background-color: rgb(223, 255, 118);
     font-size: 12px;
     border-radius: 500px;
-    color: white;
+    color: rgba(0, 119, 255, 0.8);
     letter-spacing: 1px;
     transition: all .25s ease;
  }
 
  .webplayer-header a#weblink:hover {
-    background-color: rgb(255, 114, 140);
+    background-color:  rgb(255, 154, 154);
     cursor: pointer;
  }
 

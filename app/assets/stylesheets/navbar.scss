@@ -14,8 +14,8 @@
 
 .splash-logo-container {
     width: 200px;
-    margin-left: min(20px);
-    margin-left: max(7%);
+    margin-left: min(.5%);
+    margin-left: max(10%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,8 +35,8 @@
     align-items: center;
     width: 250px;
     margin-right: min(10px);
-    margin-right: max(4%);
-    justify-content: space-around;
+    margin-right: max(5%);
+    justify-content: flex-start;
 }
 
 .divider {
