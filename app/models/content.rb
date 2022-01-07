@@ -4,7 +4,6 @@ class Content < ApplicationRecord
 
     validates :title, :length, :artist_id, :album_id, presence: true
     validates :content_type, presence: true, inclusion: { in: %w(podcast music) }
-    validates :description
 
     belongs_to :category, 
     foreign_key: :category_id,

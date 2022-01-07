@@ -1,9 +1,8 @@
 class Artist < ApplicationRecord
 
-    has_one_attached :avatar, service: :s3
+    has_one_attached :avatar
 
-    validates :artist_name, presence: true
-    validates :bio
+    validates :artist_name, presence: true, uniqueness: true
 
     has_many :albums,
     foreign_key: :artist_id,

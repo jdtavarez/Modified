@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_06_213949) do
+ActiveRecord::Schema.define(version: 2022_01_07_132457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_01_06_213949) do
     t.index ["genre"], name: "index_categories_on_genre", unique: true
   end
 
-  create_table "content", force: :cascade do |t|
+  create_table "contents", force: :cascade do |t|
     t.string "title", null: false
     t.integer "length", null: false
     t.integer "artist_id", null: false
@@ -76,19 +76,19 @@ ActiveRecord::Schema.define(version: 2022_01_06_213949) do
     t.integer "album_pos", null: false
     t.integer "streams", default: 0, null: false
     t.string "content_type", null: false
-    t.index ["artist_id", "album_id"], name: "index_content_on_artist_id_and_album_id"
-    t.index ["content_type", "category_id"], name: "index_content_on_content_type_and_category_id"
-    t.index ["streams"], name: "index_content_on_streams"
-    t.index ["title"], name: "index_content_on_title"
+    t.index ["artist_id", "album_id"], name: "index_contents_on_artist_id_and_album_id"
+    t.index ["content_type", "category_id"], name: "index_contents_on_content_type_and_category_id"
+    t.index ["streams"], name: "index_contents_on_streams"
+    t.index ["title"], name: "index_contents_on_title"
   end
 
-  create_table "playlist_content", force: :cascade do |t|
+  create_table "playlist_contents", force: :cascade do |t|
     t.integer "playlist_id", null: false
     t.integer "content_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "position", null: false
-    t.index ["playlist_id", "content_id"], name: "index_playlist_content_on_playlist_id_and_content_id"
+    t.index ["playlist_id", "content_id"], name: "index_playlist_contents_on_playlist_id_and_content_id"
   end
 
   create_table "playlists", force: :cascade do |t|

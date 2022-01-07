@@ -1,8 +1,8 @@
 class Album < ApplicationRecord
 
-    validates :title, :release_year, :artist_id presence: true
+    validates :title, :release_year, :artist_id, presence: true
 
-    has_one_attached :image, service: :s3
+    has_one_attached :image
 
     belongs_to :artist,
     foreign_key: :artist_id,
