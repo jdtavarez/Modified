@@ -1,0 +1,28 @@
+#web-side-bar {
+    position: absolute;
+    border: mediumaquamarine 1px solid;
+    width: min(225px);
+    height: 100%;
+    overflow: hidden;
+}
+
+.web-nav-bar {
+    width: inherit;
+    height: 330px;
+    border: 1px red solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-func {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.playlist-index {
+    height: 60%;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+}
