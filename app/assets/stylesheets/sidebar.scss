@@ -1,15 +1,16 @@
 #web-side-bar {
-    position: absolute;
-    border: mediumaquamarine 1px solid;
-    width: min(225px);
+    width: min(210px);
     height: 100%;
     overflow: hidden;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .web-nav-bar {
     width: inherit;
     height: 330px;
-    border: 1px red solid;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

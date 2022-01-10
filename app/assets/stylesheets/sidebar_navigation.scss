@@ -1,0 +1,23 @@
+.web-nav-bar {
+    display: flex;
+    color: white;
+}
+
+.sidebar-logo {
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    justify-content: start;
+    align-items: center;
+}
+
+.sidebar-logo img {
+    width: 30%;
+    margin: 10px;
+}
+
+.sidebar-logo p {
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+}

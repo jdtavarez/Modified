@@ -41,15 +41,33 @@ album1.image.attach(io: cover1, filename: "SKETCHES_COVER.jpg")
 content1.media.attach(io: song1, filename: "GREEN.mp3")
 content2.media.attach(io: song2, filename: "TECH_PIRATE.mp3")
 
-
 album2 = Album.create!(title: "Electronic Victory", release_year: "2016", artist_id: artist2.id)
 
-content3 = Content.create!([{title: "K", length: 76, artist_id: artist2.id, category_id: category1.id, album_pos: 1, streams: 100, content_type: "music", album_id: album2.id}, {title: "New One", length: 66, artist_id: artist2.id, category_id: category1.id, album_pos: 2, streams: 10020, content_type: "music", album_id: album2.id}, 
-{title: "Old One", length: 45, artist_id: artist2.id, category_id: category1.id, album_pos: 3, streams: 400, content_type: "music", album_id: album2.id},
-{title: "Project 27", length: 34, artist_id: artist2.id, category_id: category1.id, album_pos: 4, streams: 10, content_type: "music", album_id: album2.id},
-{title: "Tunnel", length: 160, artist_id: artist2.id, category_id: category1.id, album_pos: 5, streams: 3, content_type: "music", album_id: album2.id}])
+content3 = Content.create!(title: "K", length: 76, artist_id: artist2.id, category_id: category1.id, album_pos: 1, streams: 100, content_type: "music", album_id: album2.id)
+content4 = Content.create!(title: "New One", length: 66, artist_id: artist2.id, category_id: category1.id, album_pos: 2, streams: 10020, content_type: "music", album_id: album2.id)
+content5 = Content.create!(title: "Old One", length: 45, artist_id: artist2.id, category_id: category1.id, album_pos: 3, streams: 400, content_type: "music", album_id: album2.id)
+content6 = Content.create!(title: "Project 27", length: 34, artist_id: artist2.id, category_id: category1.id, album_pos: 4, streams: 10, content_type: "music", album_id: album2.id)
+content7 = Content.create!(title: "Tunnel", length: 160, artist_id: artist2.id, category_id: category1.id, album_pos: 5, streams: 3, content_type: "music", album_id: album2.id)
+
+cover2 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EWIN/TUNNEL_DUDE/TUNNEL_DUDE_COVER.jpeg')
+
+song3 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EWIN/TUNNEL_DUDE/K.mp3')
+song4 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EWIN/TUNNEL_DUDE/NEW_ONE.mp3')
+song5 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EWIN/TUNNEL_DUDE/OLD_ONE.mp3')
+song6 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EWIN/TUNNEL_DUDE/PROJECT_27.mp3')
+song7 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EWIN/TUNNEL_DUDE/TUNNEL.mp3')
+
+album2.image.attach(io: cover2, filename: "TUNNEL_DUDE_COVER.jpg" )
+content3.media.attach(io: song3, filename: "K.mp3")
+content4.media.attach(io: song4, filename: "NEW_ONE.mp3")
+content5.media.attach(io: song5, filename: "OLD_ONE.mp3")
+content6.media.attach(io: song6, filename: "PROJECT_27.mp3")
+content7.media.attach(io: song7, filename: "TUNNEL.mp3")
 
 playlist1 = Playlist.create!(title: "My Playlist 1", creator_id: user1.id, creator_type: "User")
 
+cover3 = URI.open('https://modified-seed-data.s3.amazonaws.com/empty_playlist.png')
+
+playlist1.image.attach(io: cover3, filename: "empty_playlist.png")
 
 (1..7).each { |e| PlaylistContent.create!(playlist_id: 1, content_id: e, position: e) }

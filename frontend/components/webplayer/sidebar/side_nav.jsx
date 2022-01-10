@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom'
 
 export default class SideNav extends React.Component {
     constructor(props) {
@@ -8,9 +9,11 @@ export default class SideNav extends React.Component {
     render () {
         return (
             <div className="web-nav-bar">
-                <div className="web-logo">
-                    Logo
-                </div>
+                <Link to="/web/"className="sidebar-logo">
+                    <img src={window.logoWhite} alt="modified logo" />
+                    <p>Modified</p>
+                </Link>
+                
                 <div className="nav-func">
                     <a href="#">Home</a>
                     <a href="#">Search</a>

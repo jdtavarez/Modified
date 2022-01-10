@@ -1,9 +1,13 @@
 class Content < ApplicationRecord
 
-    has_one_attached :media
-
     validates :title, :length, :artist_id, :album_id, presence: true
     validates :content_type, presence: true, inclusion: { in: %w(podcast music) }
+
+    has_one_attached :media
+
+    has_one :image,
+    through: :album,
+    source: :image
 
     belongs_to :category, 
     foreign_key: :category_id,

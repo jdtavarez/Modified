@@ -12,24 +12,24 @@ export const login = (user) => (dispatch) => (
         dispatch(receiveCurrentUser(response))    
 }));
 
-export const logout = () => (dispatch) => (
-    SessionAPIUtil.logout().then(response => {
-        (response instanceof Array) ?
-        dispatch(receiveErrors(response)) :
-        dispatch(logoutCurrentUser())
-}));
-
 export const signup = (user) => (dispatch) => (
     SessionAPIUtil.signup(user).then(response => {
         (response instanceof Array) ?
-        dispatch(receiveErrors(response)) :
-        dispatch(receiveCurrentUser(response))
+            dispatch(receiveErrors(response)) :
+            dispatch(receiveCurrentUser(response))
 }));
 
 export const receiveCurrentUser = (user) => ({
     type: RECEIEVE_CURRENT_USER,
     user
 })
+
+export const logout = () => (dispatch) => (
+    SessionAPIUtil.logout().then(response => {
+        (response instanceof Array) ?
+        dispatch(receiveErrors(response)) :
+        dispatch(logoutCurrentUser())
+}));
 
 export const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER,

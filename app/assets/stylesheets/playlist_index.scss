@@ -1,0 +1,23 @@
+.playlist-index {
+    width: 80%;
+    border-top: 1px solid rgb(55, 55, 55);
+}
+
+.playlist-index-item {
+    margin-top: 15px;
+    color: rgb(155, 155, 155);
+    font-size: 15px;
+    text-decoration: none;
+    transform: scaleX(.96);
+    -webkit-transform: scaleX(.96);
+    transform-origin: left;
+    text-align: left;
+    font-family: Verdana, sans-serif;
+    letter-spacing: -.25px;
+    margin: 5px;
+}
+
+.playlist-index-item:hover {
+    color: white;
+    cursor: default;
+}

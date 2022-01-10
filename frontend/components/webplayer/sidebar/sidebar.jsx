@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SideNav from './side_nav'
-import PlaylistIndex from './playlist_index';
+import PlaylistIndexContainer from './playlist_index_container';
 
 
 export default class SideBar extends React.Component {
@@ -13,7 +13,7 @@ export default class SideBar extends React.Component {
         return (
             <div id="web-side-bar">
                 <SideNav />
-                <PlaylistIndex />
+                <PlaylistIndexContainer />
             </div>
         )
     }
