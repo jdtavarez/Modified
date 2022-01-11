@@ -4,13 +4,6 @@ export const createPlaylist = (playlist) => (
         url: "/api/playlists/",
         data: { playlist }
     })
-) 
-
-export const fetchPlaylist = (playlistId) => (
-    $.ajax({
-        method: "GET",
-        url: `/api/playlists/${playlistId}`
-    })
 )
 
 export const updatePlaylist = (playlistId) => (

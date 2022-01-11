@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_132457) do
+ActiveRecord::Schema.define(version: 2022_01_11_005923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_132457) do
   end
 
   create_table "artists", force: :cascade do |t|
-    t.string "artist_name", null: false
+    t.string "username", null: false
     t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -76,6 +76,9 @@ ActiveRecord::Schema.define(version: 2022_01_07_132457) do
     t.integer "album_pos", null: false
     t.integer "streams", default: 0, null: false
     t.string "content_type", null: false
+    t.string "album_title"
+    t.string "artist_name"
+    t.string "genre"
     t.index ["artist_id", "album_id"], name: "index_contents_on_artist_id_and_album_id"
     t.index ["content_type", "category_id"], name: "index_contents_on_content_type_and_category_id"
     t.index ["streams"], name: "index_contents_on_streams"

@@ -1,23 +1,29 @@
 .playlist-index {
-    width: 80%;
+    height: 44%;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+    width: 75%;
     border-top: 1px solid rgb(55, 55, 55);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 40px;
 }
 
 .playlist-index-item {
-    margin-top: 15px;
     color: rgb(155, 155, 155);
-    font-size: 15px;
+    font-size: 14px;
     text-decoration: none;
-    transform: scaleX(.96);
-    -webkit-transform: scaleX(.96);
-    transform-origin: left;
-    text-align: left;
     font-family: Verdana, sans-serif;
     letter-spacing: -.25px;
-    margin: 5px;
+    margin: 15px 0px 0px 0px;
 }
 
 .playlist-index-item:hover {
     color: white;
     cursor: default;
+}
+
+.playlist-index-item:hover a {
+    color: white;
 }

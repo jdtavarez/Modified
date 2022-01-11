@@ -16,7 +16,7 @@ export default class PlaylistIndex extends React.Component {
 
         return (
             <ul className="playlist-index">
-                {playlistIndex}
+                {playlistIndex.reverse()}
             </ul>
         )
     }

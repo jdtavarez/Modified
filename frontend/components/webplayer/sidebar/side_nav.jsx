@@ -4,6 +4,18 @@ import { Link } from 'react-router-dom'
 export default class SideNav extends React.Component {
     constructor(props) {
         super(props)
+        this.handleClick = this.handleClick.bind(this)
+        this.newPlaylistId = 0;
+    }
+
+    handleClick(e) {
+        e.preventDefault()
+        this.props.createPlaylist().then(() => {
+            this.newPlaylistId = Object.keys(this.props.playlists).slice(-1)
+            this.props.fetchCreatorPlaylists("users", 1).then(() => {
+                this.props.history.push(`/web/playlist/${this.newPlaylistId}`)
+            })
+        })
     }
 
     render () {
@@ -13,17 +25,15 @@ export default class SideNav extends React.Component {
                     <img src={window.logoWhite} alt="modified logo" />
                     <p>Modified</p>
                 </Link>
-                
                 <div className="nav-func">
                     <a href="#">Home</a>
                     <a href="#">Search</a>
                     <a href="#">Your Library</a>
                 </div>
-                <div className="nav-playlist">
-                    <a href="">Create Playlist</a>
-                    {/* <a href="">Liked Songs</a> */}
-                    <a href=""></a>
-                </div>
+                <Link className="nav-playlist" onClick={this.handleClick} to="/web/">
+                        <i className="fas fa-plus-square"></i>
+                        <div className="nav-playlist-text">Create Playlist</div>
+                </Link>
             </div>
         )
     }

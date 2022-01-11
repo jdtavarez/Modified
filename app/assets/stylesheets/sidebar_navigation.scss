@@ -1,8 +1,3 @@
-.web-nav-bar {
-    display: flex;
-    color: white;
-}
-
 .sidebar-logo {
     display: flex;
     width: 100%;
@@ -10,9 +5,12 @@
     justify-content: start;
     align-items: center;
 }
+.sidebar-logo p {
+    margin-right: 20px
+}
 
 .sidebar-logo img {
-    width: 30%;
+    width: 25%;
     margin: 10px;
 }
 
@@ -20,4 +18,27 @@
     color: white;
     font-size: 25px;
     font-weight: 600;
+}
+
+.nav-playlist {
+    text-align: center;
+    text-decoration: none;
+    color: rgb(155, 155, 155);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+.nav-playlist:hover {
+    color: white;
+}
+
+.fas.fa-plus-square {
+    font-size: 30px;
+}
+
+.nav-playlist-text {
+    font-size: 15px;
+    margin: 0 auto;
 }

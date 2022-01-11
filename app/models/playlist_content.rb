@@ -9,5 +9,9 @@ class PlaylistContent < ApplicationRecord
     belongs_to :content,
     foreign_key: :content_id, 
     class_name: :Content
+
+    has_one :artist, 
+    through: :content,
+    source: :artist 
     
 end

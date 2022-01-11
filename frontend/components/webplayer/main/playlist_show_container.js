@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
 import PlaylistShow from "./playlist_show";
-import { fetchPlaylist } from "../../../actions/playlist_actions";
+import { fetchContents } from "../../../actions/content_actions";
 
-const mSTP = (state) => ({
+const mSTP = (state) => {
+    return ({
     currentUser: state.entities.users[state.session.id],
-    playlists: state.entities.playlists,
-    contents: state.entities.contents,
-    order: state.entities.order
-})
+    playlist: state.entities.contents.playlist,
+    contents: state.entities.contents
+}) }
 
 const mDTP = (dispatch) => ({
-    fetchPlaylist: (playlistId) => dispatch(fetchPlaylist(playlistId))
+    fetchContents: (playlistId) => dispatch(fetchContents(playlistId))
 })
 
 export default connect(mSTP, mDTP)(PlaylistShow);

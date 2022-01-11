@@ -2,7 +2,6 @@ import * as PlaylistAPIUtil from '../util/playlist_util'
 
 export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS"
 export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST"
-export const UPDATE_PLAYLIST = "UPDATE_PLAYLIST"
 export const REMOVE_PLAYLIST = "REMOVE_PLAYLIST"
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS"
 export const CLEAR_ERRORS = " CLEAR_ERRORS"
@@ -22,16 +21,6 @@ export const receivePlaylists = (playlists) => ({
 
 export const createPlaylist = (playlist) => (dispatch) => (
     PlaylistAPIUtil.createPlaylist(playlist).then(response => {
-        (response instanceof Array) ?
-        dispatch(receiveErrors(response)) :
-        dispatch(receivePlaylist(response))
-    })
-)
-
-export const fetchPlaylist = (playlistId) => (dispatch) => (
-    PlaylistAPIUtil.fetchPlaylist(playlistId).then(response => {
-        (response instanceof Array) ?
-        dispatch(receiveErrors(response)) :
         dispatch(receivePlaylist(response))
     })
 )

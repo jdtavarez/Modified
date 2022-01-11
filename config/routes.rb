@@ -10,16 +10,20 @@ Rails.application.routes.draw do
       resources :playlists, only: [:index]
     end
 
-    resources :playlists, only: [:create, :show, :update, :destroy]
+    resources :playlists, only: [:create, :show, :update, :destroy] do 
+      resources :playlist_contents, only: [:index]
+    end
 
     resources :artists, only: [:show, :index] do
       resources :playlists, only: [:index]
       resources :albums, only: [:index]
     end
 
-    resources :albums, only: [:show]
+    resources :albums, only: [:show] do 
+      resources :contents, only: [:index]
+    end
 
-    resources :songs, only: [:update] do
+    resources :contents, only: [:update] do
       resources :streams, only: [:create]
     end
 

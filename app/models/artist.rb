@@ -2,7 +2,7 @@ class Artist < ApplicationRecord
 
     has_one_attached :avatar
 
-    validates :artist_name, presence: true, uniqueness: true
+    validates :username, presence: true, uniqueness: true
 
     has_many :albums,
     foreign_key: :artist_id,

@@ -5,10 +5,6 @@ class Content < ApplicationRecord
 
     has_one_attached :media
 
-    has_one :image,
-    through: :album,
-    source: :image
-
     belongs_to :category, 
     foreign_key: :category_id,
     class_name: :Category

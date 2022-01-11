@@ -20,11 +20,11 @@ user1 = User.new(username: "demouser", email: "demouser@mail.com", gender: "Non-
 user1.password = "password"
 user1.save!
 
-artist1 = Artist.create!(artist_name: "Champagne Papito")
-artist2 = Artist.create!(artist_name: "Ewin")
-artist3 = Artist.create!(artist_name: "JOC")
-artist4 = Artist.create!(artist_name: "Mayo King")
-artist5 = Artist.create!(artist_name: "Tess")
+artist1 = Artist.create!(username: "Champagne Papito")
+artist2 = Artist.create!(username: "Ewin")
+artist3 = Artist.create!(username: "JOC")
+artist4 = Artist.create!(username: "Mayo King")
+artist5 = Artist.create!(username: "Tess")
 
 category1 = Category.create!(genre: "Electronic")
 
@@ -38,6 +38,8 @@ song1 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/JOC/SKETCH
 song2 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/JOC/SKETCHES/TECH_PIRATE.mp3')
 
 album1.image.attach(io: cover1, filename: "SKETCHES_COVER.jpg")
+# content1.media.attach(io: cover1, filename: "SKETCHES_COVER.jpg")
+# content2.media.attach(io: cover1, filename: "SKETCHES_COVER.jpg")
 content1.media.attach(io: song1, filename: "GREEN.mp3")
 content2.media.attach(io: song2, filename: "TECH_PIRATE.mp3")
 
@@ -58,6 +60,11 @@ song6 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EWIN/TUNNE
 song7 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EWIN/TUNNEL_DUDE/TUNNEL.mp3')
 
 album2.image.attach(io: cover2, filename: "TUNNEL_DUDE_COVER.jpg" )
+# content3.media.attach(io: cover2, filename: "TUNNEL_DUDE_COVER.jpg" )
+# content4.media.attach(io: cover2, filename: "TUNNEL_DUDE_COVER.jpg" )
+# content5.media.attach(io: cover2, filename: "TUNNEL_DUDE_COVER.jpg" )
+# content6.media.attach(io: cover2, filename: "TUNNEL_DUDE_COVER.jpg" )
+# content7.media.attach(io: cover2, filename: "TUNNEL_DUDE_COVER.jpg" )
 content3.media.attach(io: song3, filename: "K.mp3")
 content4.media.attach(io: song4, filename: "NEW_ONE.mp3")
 content5.media.attach(io: song5, filename: "OLD_ONE.mp3")
