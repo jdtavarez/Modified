@@ -78,3 +78,8 @@ cover3 = URI.open('https://modified-seed-data.s3.amazonaws.com/empty_playlist.pn
 playlist1.image.attach(io: cover3, filename: "empty_playlist.png")
 
 (1..7).each { |e| PlaylistContent.create!(playlist_id: 1, content_id: e, position: e) }
+
+connection = ActiveRecord::Base.connection()
+connection.execute("UPDATE contents SET album_title = albums.title FROM albums WHERE contents.album_id = albums.id")
+connection.execute("UPDATE contents SET artist_name = artists.username FROM artists WHERE contents.artist_id = artists.id")
+connection.execute("UPDATE contents SET genre = categories.genre FROM categories WHERE contents.category_id = categories.id")
