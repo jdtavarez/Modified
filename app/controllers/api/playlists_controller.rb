@@ -8,17 +8,6 @@ class Api::PlaylistsController < ApplicationController
         render "api/playlists/index"
     end
 
-    # def show
-    #     id = params[:id]
-    #     @playlist = Playlist.find(id)
-    #     @creator = @playlist.creator
-    #     if @playlist.contents
-    #         @contents = @playlist.contents
-    #         @order = @playlist.playlist_contents
-    #     end
-    #     render "api/playlists/show"
-    # end
-
     def create
         @playlist = Playlist.new
         title = "My Playlist ##{(current_user.playlists.size)+1}"
@@ -34,11 +23,17 @@ class Api::PlaylistsController < ApplicationController
 
     def update
         @playlist = Playlist.find(params[:id])
-        if @playlist.update_attributes(playlist_params) 
+        if @playlist.update(playlist_params) 
             render "api/playlists/show"
         else 
-            render json: @playlist.errors.full_messages, status: 404
+            render json: @playlist.errors.full_messages
         end
+    end
+
+    def destroy 
+        @playlist = Playlist.find(params[:id])
+        @playlist.destroy
+        render json: @playlist.id
     end
 
     private 

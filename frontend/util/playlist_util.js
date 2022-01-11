@@ -6,10 +6,11 @@ export const createPlaylist = (playlist) => (
     })
 )
 
-export const updatePlaylist = (playlistId) => (
+export const updatePlaylist = (playlist) => (
     $.ajax({
         method: "PATCH",
-        url: `/api/playlists/${playlistId}`
+        url: `/api/playlists/${playlist.id}`,
+        data: { playlist }
     })
 )
 

@@ -30,20 +30,30 @@ export const receivePlaylist = (playlist) => ({
     playlist
 })
 
-export const updatePlaylist = (playlistId) => (dispatch) => (
-    PlaylistAPIUtil.updatePlaylist(playlistId).then(response => {
+export const updatePlaylist = (playlist) => (dispatch) => (
+    PlaylistAPIUtil.updatePlaylist(playlist).then(response => {
         (response instanceof Array) ?
         dispatch(receiveErrors(response)) :
         dispatch(receivePlaylist(response))
     })
 )
 
-export const deletePlaylist = () => (dispatch) => (
-    PlaylistAPIUtil.deletePlaylist().then(() => {
-        dispatch(removePlaylist())
+export const deletePlaylist = (playlistId) => (dispatch) => (
+    PlaylistAPIUtil.deletePlaylist(playlistId).then((response) => {
+        dispatch(removePlaylist(response))
     })
 )
 
-export const removePlaylist = () => ({
-    type: REMOVE_PLAYLIST
+export const removePlaylist = (playlistId) => ({
+    type: REMOVE_PLAYLIST,
+    playlistId
+})
+
+export const receiveErrors = (errors) => ({
+    type: RECEIVE_ERRORS,
+    errors
+})
+
+export const clearErrors = () => ({
+    type: CLEAR_ERRORS
 })

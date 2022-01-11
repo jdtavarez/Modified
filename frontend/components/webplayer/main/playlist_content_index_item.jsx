@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-export default class ContentIndexItem extends React.Component {
+export default class PlaylistContentIndexItem extends React.Component {
     constructor(props) {
         super(props)
+
         this.formatDate = this.formatDate.bind(this)
-        this.formatDuration = this.formatDuration.bind(this)
+        this.formatDuration = this.formatDuration.bind(this) 
     }
 
     formatDate () {
@@ -40,7 +41,7 @@ export default class ContentIndexItem extends React.Component {
                     </div>
                 </div>
                 <div className="album">
-                    <Link className="pl-artist-link" to={`/web/artists/${this.props.album.id}`}>{this.props.album.title}</Link>
+                    <Link className="pl-album-link" to={`/web/albums/${this.props.album.id}`}>{this.props.album.title}</Link>
                     </div>
                 <div className="date-added">{this.formatDate()}</div>
                 <div className="duration">{this.formatDuration()}</div>

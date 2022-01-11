@@ -5,10 +5,4 @@ class Api::ArtistsController < ApplicationController
         render json: @albums
     end
 
-    def show
-        id = params[:id]
-        @album = Album.find(id).includes)(:songs)
-        render json: @album
-    end
-
 end

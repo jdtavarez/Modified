@@ -25,9 +25,12 @@
     text-decoration: none;
     color: rgb(155, 155, 155);
     display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    width: 80%;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    transition: color .25s ease;
 }
 
 .nav-playlist:hover {
@@ -38,7 +41,8 @@
     font-size: 30px;
 }
 
-.nav-playlist-text {
-    font-size: 15px;
-    margin: 0 auto;
+.playlist-text {
+    margin-left: 15px;
+    font-weight: 600;
+    font-size: 14px;
 }

@@ -7,10 +7,27 @@ export const receiveContents = (contents) => ({
     contents 
 })
 
-export const fetchContents = (playlistId) => (dispatch) => (
+export const fetchPlaylistContents = (playlistId) => (dispatch) => (
     ContentAPIUtil.fetchPlaylistContents(playlistId).then(response => {
         (response instanceof Array) ?
             dispatch(receiveErrors(response)) :
             dispatch(receiveContents(response))
     })
 )
+
+export const fetchAlbumContents = (albumId) => (dispatch) => (
+    ContentAPIUtil.fetchAlbumContents(albumId).then(response => {
+        (response instanceof Array) ?
+            dispatch(receiveErrors(response)) :
+            dispatch(receiveContents(response))
+    })
+)
+
+export const receiveErrors = (errors) => ({
+    type: RECEIVE_ERRORS,
+    errors
+})
+
+export const clearErrors = () => ({
+    type: CLEAR_ERRORS
+})

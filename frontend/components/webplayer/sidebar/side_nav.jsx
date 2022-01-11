@@ -11,8 +11,8 @@ export default class SideNav extends React.Component {
     handleClick(e) {
         e.preventDefault()
         this.props.createPlaylist().then(() => {
-            this.newPlaylistId = Object.keys(this.props.playlists).slice(-1)
-            this.props.fetchCreatorPlaylists("users", 1).then(() => {
+            this.newPlaylistId = Object.keys(this.props.playlists).slice(-2, -1)
+            this.props.fetchCreatorPlaylists("users", this.props.currentUser.id).then(() => {
                 this.props.history.push(`/web/playlist/${this.newPlaylistId}`)
             })
         })
@@ -31,8 +31,8 @@ export default class SideNav extends React.Component {
                     <a href="#">Your Library</a>
                 </div>
                 <Link className="nav-playlist" onClick={this.handleClick} to="/web/">
-                        <i className="fas fa-plus-square"></i>
-                        <div className="nav-playlist-text">Create Playlist</div>
+                    <i className="fas fa-plus-square"></i>
+                    <div className="playlist-text">Create Playlist</div>
                 </Link>
             </div>
         )
