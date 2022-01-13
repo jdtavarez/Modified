@@ -23,6 +23,19 @@ export const fetchAlbumContents = (albumId) => (dispatch) => (
     })
 )
 
+export const receieveContent = (content) => ({
+    type: RECEIVE_CONTENT,
+    content
+})
+
+export const fetchContent = (contentId) => (dispatch) => (
+    ContentAPIUtil.fetchContent(contentId).then(response => {
+        (response instanceof Array) ?
+            dispatch(receiveErrors(response)) :
+            dispatch(receiveContent(response))
+    })
+)
+
 export const receiveErrors = (errors) => ({
     type: RECEIVE_ERRORS,
     errors

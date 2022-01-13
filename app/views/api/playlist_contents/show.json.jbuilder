@@ -25,7 +25,6 @@ if @playlist_contents
                 json.position position
                 json.date_added date_added
                 json.genre content.genre
-                
             end
         end
     end

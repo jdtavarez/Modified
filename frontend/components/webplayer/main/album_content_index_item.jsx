@@ -7,6 +7,7 @@ export default class AlbumContentIndexItem extends React.Component {
         super(props)
 
         this.formatDuration = this.formatDuration.bind(this) 
+        this.handleDoubleClick = this.handleDoubleClick.bind(this)
     }
 
     formatDuration() {
@@ -17,9 +18,21 @@ export default class AlbumContentIndexItem extends React.Component {
         return `${minutes}:${seconds}`
     }
 
+    handleDoubleClick() {
+        const startPos = this.props.position;
+        const contentIds = this.props.contents.contentIds;
+        const contents = this.props.contents.contents;
+        const queueIds = contentIds.slice((startPos - 1));
+        let queue = {};
+        queueIds.map(contentId => (
+            queue[contentId] = contents[contentId]
+        ))
+        this.props.receiveQueue(queue)
+    }
+
     render () {
         return (
-        <div className="al-content-index-item">
+            <div className="al-content-index-item" onDoubleClick={this.handleDoubleClick}>
                 <div className="position">{this.props.position}</div>
                 <div className="title">
                     <div className="al-song-meta-data">
@@ -33,6 +46,7 @@ export default class AlbumContentIndexItem extends React.Component {
                 </div>
                 <div className="date-added"></div>
                 <div className="duration">{this.formatDuration()}</div>
+                <div className="content-options"></div>
         </div>
         )
     }

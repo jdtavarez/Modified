@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import PlaylistContentIndexItem from './playlist_content_index_item'
+import PlaylistContentIndexItem from './playlist_content_container'
 
 export default class Playlist extends React.Component {
     constructor(props) {
@@ -115,7 +115,7 @@ export default class Playlist extends React.Component {
             <div className="playlist-contents">
                 <div className="playlist-tools">
                     <div className="pl-btn">
-                        <i onBlur={this.handleButtonClick} onClick={this.handleButtonClick} className="fas fa-ellipsis-h"></i>
+                        <i onBlur={this.handleButtonClick} onClick={this.handleButtonClick} id="top-options" className="fas fa-ellipsis-h"></i>
                     </div>
                     {playlist_nav}
                 </div>
@@ -126,6 +126,7 @@ export default class Playlist extends React.Component {
                             <div className="album">ALBUM</div>
                             <div className="date-added">DATE ADDED</div>
                             <div className="duration"><i className="far fa-clock"></i></div>
+                            <div className="content-options"></div>
                         </div>
                     {content_index}
                 </div>

@@ -8,3 +8,160 @@
     z-index: 10;
     background-color: rgb(21, 21, 21);
 }
+
+.play-bar-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.content-metadata {
+    display: flex;
+    width: 25%;
+    align-items: center;
+}
+
+.main-content-area {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.volume {
+    display: flex;
+    width: 25%;
+    justify-content: flex-end;
+}
+
+#volume {
+    height: 8px;
+    color: gray;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.volume {
+    margin-top: 10px;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    height: 15px;
+}
+
+#vol-con {
+    margin-right: 4px;
+    line-height: -12px;
+    width: 18px;
+    height: 18px;
+    color: white;
+    z-index: 400;
+}
+
+#volume {
+    margin-right: 30px;
+}
+
+.play-clicked {
+    color: rgb(51, 92, 255);
+}
+
+.content-source {
+    height: 20px;
+    width: 20px;
+    z-index: 200;
+}
+
+.audio-controls {
+    display: flex;
+    color: rgb(145, 145, 145);
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 200;
+    align-items: center;
+    margin-top: 3px;
+}
+
+.audio-controls > * {
+    margin: 10px;
+}
+
+.audio-controls > *:hover {   
+    color: white;
+}
+
+.fas.fa-play, .fas.fa-pause {
+    color: black;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.fas.fa-play:hover, .fas.fa-pause:hover {
+    transform: scale(1.1);
+}
+
+.pbar-song-info {
+    height: 35px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.pbar-song-title {
+    color: white;
+    text-decoration: none;
+}
+
+.pbar-artist-link {
+    color: rgb(155, 155, 155);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.pbar-artist-link:hover, .pbar-song-title:hover {
+    text-decoration: underline;
+}
+
+.pbar-album-link {
+    color: rgb(155, 155, 155);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.pbar-album-link:hover {
+    text-decoration: underline;
+}
+
+.pbar-album-cover {
+    height: 60px;
+    margin-left: 15px;
+}
+
+#play-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#progress {
+    width: 65%;
+    align-self: center;
+    background-color: gray;
+    height: 0px;
+    padding: 2px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.time-stamp {
+    font-family: sans-serif;
+    margin: 5px;
+    color: gray;
+    font-size: 10px;
+}
+

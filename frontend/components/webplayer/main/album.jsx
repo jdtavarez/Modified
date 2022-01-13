@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import AlbumContentIndexItem from './album_content_index_item'
+import AlbumContentIndexItem from './album_content_container'
 
 export default class Album extends React.Component {
     constructor(props) {
@@ -56,9 +56,9 @@ export default class Album extends React.Component {
                 <img  src={album.url} className='playlist-cover' />
                 <div className="playlist-info">
                     <h3 className="content-type">ALBUM</h3>
-                    <h1 onClick={this.handleClick} className="playlist-title">{album.title}</h1>
+                    <h1 onClick={this.handleClick} className="album-title">{album.title}</h1>
                     <div className="playlist-metadata">
-                            <Link className="creator-info" to={`/web/users${creator_id}`}>
+                            <Link className="creator-info" to={`/web/artists/${creator_id}`}>
                             <h2>{creator}</h2>
                         </Link>
                         <h2> • {album.release_year} • {total_items} songs, {total_duration} mins</h2>
@@ -67,7 +67,7 @@ export default class Album extends React.Component {
             </div>
             <div className="playlist-contents">
                 <div className="playlist-tools">
-                    <i className="fas fa-ellipsis-h"></i>
+                    <i id="top-options" className="fas fa-ellipsis-h"></i>
                 </div>
                 <div className="content-index">
                         <div className="content-index-header">
@@ -76,6 +76,7 @@ export default class Album extends React.Component {
                             <div className="album"></div>
                             <div className="date-added"></div>
                             <div className="duration"><i className="far fa-clock"></i></div>
+                            <div className="content-options"></div>
                         </div>
                     {content_index}
                 </div>

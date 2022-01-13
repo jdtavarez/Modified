@@ -8,6 +8,7 @@ export default class PlaylistContentIndexItem extends React.Component {
 
         this.formatDate = this.formatDate.bind(this)
         this.formatDuration = this.formatDuration.bind(this) 
+        this.handleDoubleClick = this.handleDoubleClick.bind(this)
     }
 
     formatDate () {
@@ -27,9 +28,21 @@ export default class PlaylistContentIndexItem extends React.Component {
         return `${minutes}:${seconds}`
     }
 
+    handleDoubleClick() {
+        const startPos = this.props.position;
+        const contentIds = this.props.contents.contentIds;
+        const contents = this.props.contents.contents;
+        const queueIds = contentIds.slice((startPos-1));
+        let queue = {}; 
+        queueIds.map(contentId => (
+            queue[contentId] = contents[contentId]
+        ))
+        this.props.receiveQueue(queue)
+    }
+
     render () {
         return (
-        <div className="content-index-item">
+        <div className="content-index-item" onDoubleClick={this.handleDoubleClick}>
                 <div className="position">{this.props.position}</div>
                 <div className="title">
                     <div className="song-meta-data">
@@ -45,6 +58,7 @@ export default class PlaylistContentIndexItem extends React.Component {
                     </div>
                 <div className="date-added">{this.formatDate()}</div>
                 <div className="duration">{this.formatDuration()}</div>
+                <i id="index-options" className="fas fa-ellipsis-h"></i>
         </div>
         )
         
