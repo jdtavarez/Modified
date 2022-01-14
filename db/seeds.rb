@@ -116,12 +116,12 @@ content13.media.attach(io: song13, filename: "MESA_KURR.mp3")
 
 album5 = Album.create!(title: "N65", release_year: "2010", artist_id: artist1.id)
 
-content14 = Content.create!(title: "N65", length: 197, artist_id: artist1.id, category_id: category4.id, album_pos: 1, streams: 2, content_type: "music", album_id: album4.id, album_title: album4.title, artist_name: artist1.username, genre: category4.genre)
+content14 = Content.create!(title: "N65", length: 197, artist_id: artist1.id, category_id: category4.id, album_pos: 1, streams: 2, content_type: "music", album_id: album5.id, album_title: album5.title, artist_name: artist1.username, genre: category4.genre)
 
 cover6 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/CHAMPAGNE_PAPITO/N65/N65_COVER.jpg')
 song14 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/CHAMPAGNE_PAPITO/N65/N65.mp3')
 
-album4.image.attach(io: cover6, filename: "N65_COVER.jpg" )
+album5.image.attach(io: cover6, filename: "N65_COVER.jpg" )
 content14.media.attach(io: song14, filename: "N65.mp3")
 
 artist9 = Artist.create!(username: "AH")

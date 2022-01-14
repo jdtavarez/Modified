@@ -26,9 +26,9 @@ export default class SideNav extends React.Component {
                     <p>Modified</p>
                 </Link>
                 <div className="nav-func">
-                    <a href="#">Home</a>
+                    {/* <a href="#">Home</a>
                     <a href="#">Search</a>
-                    <a href="#">Your Library</a>
+                    <a href="#">Your Library</a> */}
                 </div>
                 <Link className="nav-playlist" onClick={this.handleClick} to="/web/">
                     <i className="fas fa-plus-square"></i>
