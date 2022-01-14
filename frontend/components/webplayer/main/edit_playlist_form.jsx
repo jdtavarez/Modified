@@ -28,11 +28,11 @@ class EditPlaylistForm extends React.Component {
     }
 
     handleSubmit(e) {
+        e.preventDefault();
         if (this.errors.title) return;
-        e.preventDefault()
-        this.props.closeModal()
-        this.props.updatePlaylist(this.state).then(() => {this.props.fetchPlaylistContents(this.state.id)})
-        this.props.fetchCreatorPlaylists("users", this.props.currentUser.id)
+        this.props.closeModal();
+        this.props.fetchCreatorPlaylists("users", this.props.currentUser.id);
+        this.props.updatePlaylist(this.state).then(() => {this.props.fetchPlaylistContents(this.state.id)});
     }
 
     updateInput(e) {
