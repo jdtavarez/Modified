@@ -31,14 +31,14 @@
   align-items: center;
 }
 
-.fas.fa-times {
+#close-modal {
   padding: 10px 12px 10px 12px;
   text-align: center;
   color: white;
   border-radius: 50px;
 }
 
-.fas.fa-times:hover {
+#close-modal:hover {
   cursor: pointer;
   background-color: gray;
 }

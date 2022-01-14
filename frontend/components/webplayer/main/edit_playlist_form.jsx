@@ -77,7 +77,7 @@ class EditPlaylistForm extends React.Component {
                 <div className="edit-form-container">
                     <div className="edit-form-header">
                         <h1>Edit details</h1>
-                        <i onClick={this.props.closeModal} className="fas fa-times"></i>
+                        <i onClick={this.props.closeModal} id="close-modal" className="fas fa-times"></i>
                     </div>
                     {error}
                     <div className="edit-form-content">
