@@ -31,8 +31,10 @@ class EditPlaylistForm extends React.Component {
         e.preventDefault();
         if (this.errors.title) return;
         this.props.closeModal();
-        this.props.fetchCreatorPlaylists("users", this.props.currentUser.id);
-        this.props.updatePlaylist(this.state).then(() => {this.props.fetchPlaylistContents(this.state.id)});
+        this.props.updatePlaylist(this.state).then(() => {
+            this.props.fetchPlaylistContents(this.state.id)
+            this.props.fetchCreatorPlaylists("users", this.props.currentUser.id)
+        });
     }
 
     updateInput(e) {
