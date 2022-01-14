@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { updatePlaylist } from "../../../actions/playlist_actions";
 import { fetchPlaylistContents } from "../../../actions/content_actions";
+import { fetchCreatorPlaylists } from "../../../actions/playlist_actions";
 import { closeModal } from '../../../actions/modal_actions'
 
 class EditPlaylistForm extends React.Component {
@@ -30,6 +31,7 @@ class EditPlaylistForm extends React.Component {
         e.preventDefault()
         this.props.closeModal()
         this.props.updatePlaylist(this.state).then(() => {this.props.fetchPlaylistContents(this.state.id)})
+        this.props.fetchCreatorPlaylists("users", this.props.currentUser.id)
     }
 
     updateInput(e) {
@@ -109,7 +111,8 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => ({
     fetchPlaylistContents: (playlistId) => dispatch(fetchPlaylistContents(playlistId)),
     updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    fetchCreatorPlaylists: (creator, id) => dispatch(fetchCreatorPlaylists(creator, id))
 })
 
 export default connect(mSTP, mDTP)(EditPlaylistForm);
