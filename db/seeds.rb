@@ -23,13 +23,6 @@ user1.save!
 
 artist2 = Artist.create!(username: "Ewin")
 artist3 = Artist.create!(username: "JOC")
-artist4 = Artist.create!(username: "Mayo King")
-artist5 = Artist.create!(username: "Tess")
-artist6 = Artist.create!(username: "Da Birdy")
-artist7 = Artist.create!(username: "Earther")
-artist8 = Artist.create!(username: "Gourmand Coquin")
-artist10 = Artist.create!(username: "Party Person")
-artist11 = Artist.create!(username: "Sybil Jonas")
 
 category1 = Category.create!(genre: "Electronic")
 category2 = Category.create!(genre: "Includes Guitar")
@@ -160,7 +153,117 @@ song21 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/AH/DUCK_F
 album7.image.attach(io: cover8, filename: "DUCK_FAT_COVER.jpg" )
 content21.media.attach(io: song21, filename: "DUCK_FAT.mp3")
 
+artist6 = Artist.create!(username: "Da Birdy")
 
+album8 = Album.create!(title: "Just BC", release_year: "1981", artist_id: artist6.id)
+
+content22 = Content.create!(title: "Just BC (Birds)", length: 102, artist_id: artist6.id, category_id: category4.id, album_pos: 1, streams: 100, content_type: "music", album_id: album8.id, album_title: album8.title, artist_name: artist6.username, genre: category4.genre)
+
+cover9 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/JUST_BC/JUST_BC_COVER.jpg')
+song22 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/JUST_BC/JUST_BC_(BIRDS).mp3')
+
+album8.image.attach(io: cover9, filename: "JUST_BC_COVER.jpg" )
+content22.media.attach(io: song22, filename: "JUST_BC_(BIRDS).mp3")
+
+album9 = Album.create!(title: "Looops And Fruits", release_year: "2023", artist_id: artist6.id)
+
+content23 = Content.create!(title: "Looop 1", length: 58, artist_id: artist6.id, category_id: category6.id, album_pos: 1, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+
+content24 = Content.create!(title: "Looop 2", length: 59, artist_id: artist6.id, category_id: category6.id, album_pos: 2, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+
+content25 = Content.create!(title: "Looop 3", length: 72, artist_id: artist6.id, category_id: category6.id, album_pos: 3, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+
+content26 = Content.create!(title: "Looop 4", length: 32, artist_id: artist6.id, category_id: category6.id, album_pos: 4, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+
+content27 = Content.create!(title: "Looop 5", length: 32, artist_id: artist6.id, category_id: category6.id, album_pos: 5, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+
+content28 = Content.create!(title: "Looop 6", length: 24, artist_id: artist6.id, category_id: category6.id, album_pos: 6, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+
+content29 = Content.create!(title: "Looop B", length: 27, artist_id: artist6.id, category_id: category6.id, album_pos: 7, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+
+content30 = Content.create!(title: "Mikan", length: 162, artist_id: artist6.id, category_id: category6.id, album_pos: 8, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+
+content31 = Content.create!(title: "Pluot", length: 97, artist_id: artist6.id, category_id: category6.id, album_pos: 9, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+
+cover10 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/LOOPS_AND_FRUITS_COVER.png')
+song23 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/LOOP_1.mp3')
+song24 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/LOOP_2.mp3')
+song25 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/LOOP_3.mp3')
+song26 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/LOOP_4.mp3')
+song27 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/LOOP_5.mp3')
+song28 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/LOOP_6.mp3')
+song29 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/LOOP_B.mp3')
+song30 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/MIKAN.mp3')
+song31 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/DA_BIRDY/LOOPS_AND_FRUITS/PLUOT.mp3')
+
+
+album9.image.attach(io: cover10, filename: "LOOPS_AND_FRUITS_COVER.png" )
+content23.media.attach(io: song23, filename: "LOOP_1.mp3")
+content24.media.attach(io: song24, filename: "LOOP_2.mp3")
+content25.media.attach(io: song25, filename: "LOOP_3.mp3")
+content26.media.attach(io: song26, filename: "LOOP_4.mp3")
+content27.media.attach(io: song27, filename: "LOOP_5.mp3")
+content28.media.attach(io: song28, filename: "LOOP_6.mp3")
+content29.media.attach(io: song29, filename: "LOOP_B.mp3")
+content30.media.attach(io: song30, filename: "MIKAN.mp3")
+content31.media.attach(io: song31, filename: "PLUOT.mp3")
+
+
+artist10 = Artist.create!(username: "PARTY PERSON")
+album10 = Album.create!(title: "LFG", release_year: "2001", artist_id: artist10.id)
+content32 = Content.create!(title: "OUI R", length: 219, artist_id: artist10.id, category_id: category3.id, album_pos: 1, streams: 100, content_type: "music", album_id: album10.id, album_title: album10.title, artist_name: artist10.username, genre: category3.genre)
+cover11 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/PARTY_PERSON/LFG/album_cover.jpg')
+song32 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/PARTY_PERSON/LFG/OUI_R.mp3')
+album10.image.attach(io: cover11, filename: "album_cover.jpg" )
+content32.media.attach(io: song32, filename: "OUI_R.mp3")
+
+
+artist11 = Artist.create!(username: "Sybil Jonas")
+album11 = Album.create!(title: "eightTees", release_year: "3000", artist_id: artist11.id)
+content33 = Content.create!(title: "eightTees", length: 214, artist_id: artist11.id, category_id: category2.id, album_pos: 1, streams: 100, content_type: "music", album_id: album11.id, album_title: album11.title, artist_name: artist11.username, genre: category2.genre)
+cover12 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/SYBIL_JONAS/EIGHT_TEES/EIGHT_TEES_COVER.jpg')
+song33 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/SYBIL_JONAS/EIGHT_TEES/EIGHT_TEES.mp3')
+album11.image.attach(io: cover12, filename: "EIGHT_TEES_COVER.jpg" )
+content33.media.attach(io: song33, filename: "EIGHT_TEES.mp3")
+
+album12 = Album.create!(title: "Spot Preem", release_year: "3000", artist_id: artist11.id)
+content34 = Content.create!(title: "Spot Preem", length: 143, artist_id: artist11.id, category_id: category3.id, album_pos: 1, streams: 100, content_type: "music", album_id: album12.id, album_title: album12.title, artist_name: artist11.username, genre: category3.genre)
+cover13 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/SYBIL_JONAS/SPOT_PREEM/SPOT_PREEM_COVER.jpg')
+song34 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/SYBIL_JONAS/SPOT_PREEM/SPOT_PREEM.mp3')
+album12.image.attach(io: cover13, filename: "SPOT_PREEM_COVER.jpg" )
+content34.media.attach(io: song34, filename: "SPOT_PREEM.mp3")
+
+
+artist8 = Artist.create!(username: "Gourmand Coquin")
+album13 = Album.create!(title: "No Smoking", release_year: "3000", artist_id: artist8.id)
+content35 = Content.create!(title: "No Smoking", length: 103, artist_id: artist8.id, category_id: category5.id, album_pos: 1, streams: 100, content_type: "music", album_id: album13.id, album_title: album13.title, artist_name: artist8.username, genre: category5.genre)
+cover14 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/GOURMAND_COQUIN/NO_SMOKING/NO_SMOKING_COVER.jpg')
+song35 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/GOURMAND_COQUIN/NO_SMOKING/NO_SMOKING.mp3')
+album13.image.attach(io: cover14, filename: "NO_SMOKING_COVER.jpg" )
+content35.media.attach(io: song35, filename: "NO_SMOKING.mp3")
+
+artist7 = Artist.create!(username: "Earther")
+album14 = Album.create!(title: "Earther", release_year: "2000", artist_id: artist7.id)
+
+content36 = Content.create!(title: "Project 11", length: 117, artist_id: artist7.id, category_id: category1.id, album_pos: 1, streams: 100, content_type: "music", album_id: album14.id, album_title: album14.title, artist_name: artist7.username, genre: category1.genre)
+
+content37 = Content.create!(title: "Project X", length: 118, artist_id: artist7.id, category_id: category1.id, album_pos: 2, streams: 100, content_type: "music", album_id: album14.id, album_title: album14.title, artist_name: artist7.username, genre: category1.genre)
+
+content38 = Content.create!(title: "Project Y1", length: 52, artist_id: artist7.id, category_id: category1.id, album_pos: 3, streams: 100, content_type: "music", album_id: album14.id, album_title: album14.title, artist_name: artist7.username, genre: category1.genre)
+
+content39 = Content.create!(title: "Project Y2", length: 71, artist_id: artist7.id, category_id: category1.id, album_pos: 4, streams: 100, content_type: "music", album_id: album14.id, album_title: album14.title, artist_name: artist7.username, genre: category1.genre)
+
+cover15 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EARTHER/EARTHER/EARTHER_COVER.jpeg')
+song36 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EARTHER/EARTHER/PROJECT_11.mp3')
+song37 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EARTHER/EARTHER/PROJECT_X.mp3')
+song38 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EARTHER/EARTHER/PROJECT_Y1.mp3')
+song39 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/EARTHER/EARTHER/PROJECT_Y2.mp3')
+
+album14.image.attach(io: cover15, filename: "EARTHER_COVER.jpeg" )
+content36.media.attach(io: song36, filename: "PROJECT_11.mp3")
+content37.media.attach(io: song37, filename: "PROJECT_X.mp3")
+content38.media.attach(io: song38, filename: "PROJECT_Y1.mp3")
+content39.media.attach(io: song39, filename: "PROJECT_Y2.mp3")
 
 playlist1 = Playlist.create!(title: "My Playlist 1", creator_id: user1.id, creator_type: "User")
 
@@ -168,4 +271,4 @@ cover3 = URI.open('https://modified-seed-data.s3.amazonaws.com/empty_playlist.pn
 
 playlist1.image.attach(io: cover3, filename: "empty_playlist.png")
 
-(1..21).each { |e| PlaylistContent.create!(playlist_id: 1, content_id: e, position: e) }
+(1..39).each { |e| PlaylistContent.create!(playlist_id: 1, content_id: e, position: e) }
