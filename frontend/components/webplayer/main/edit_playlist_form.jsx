@@ -28,6 +28,7 @@ class EditPlaylistForm extends React.Component {
     }
 
     handleSubmit(e) {
+        if (this.errors.title) return;
         e.preventDefault()
         this.props.closeModal()
         this.props.updatePlaylist(this.state).then(() => {this.props.fetchPlaylistContents(this.state.id)})
