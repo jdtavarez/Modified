@@ -21,7 +21,7 @@ export default class SideNav extends React.Component {
     render () {
         return (
             <div className="web-nav-bar">
-                <Link to="/web/"className="sidebar-logo">
+                <Link to="/"className="sidebar-logo">
                     <img src={window.logoWhite} alt="modified logo" />
                     <p>Modified</p>
                 </Link>
