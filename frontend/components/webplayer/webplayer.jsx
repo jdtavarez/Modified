@@ -1,6 +1,6 @@
 import React from 'react';
 import SideBar from './sidebar/sidebar';
-import PlayBar from './playbar/play_container';
+import PlayBar from './playbar/playbar_container';
 import Home from './main/home';
 import PlaylistContainer from './main/playlist_container';
 import AlbumContainer from './main/album_container'

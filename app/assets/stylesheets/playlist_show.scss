@@ -95,10 +95,17 @@
     color: white;
 }
 
-#index-options {
+.index-options-container {
+    position: relative;
+    height: 16px;
     width: 3%;
     padding-left: 10px;
-    color: #1a1a1a;
+}
+
+#index-options {
+    position: absolute;
+    height: 16px;
+    width: 100%;
 }
 
 

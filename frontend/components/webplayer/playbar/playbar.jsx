@@ -36,7 +36,7 @@ export default class PlayBar extends React.Component {
         if (this.props.queue !== prevProps.queue) {
             const queueContents = Object.assign({}, this.props.contents.contents);
             const immutableQueue = this.props.contents.contentIds;
-            let queueIds = this.props.queue.queueIds
+            let queueIds = this.props.queueIds;
             const firstContent = queueIds[0];
             const oldQueuePivot = immutableQueue.indexOf(firstContent)
             const oldQueue = immutableQueue.slice(0, oldQueuePivot)   
@@ -69,7 +69,8 @@ export default class PlayBar extends React.Component {
         if (audio.src.slice(-3) !== 'mp3') return;
         const pausedBool = audio.paused
         pausedBool ? audio.play() : audio.pause();
-        this.setState({ playStatus: pausedBool })
+        this.setState({ playStatus: pausedBool });
+        this.props.play(pausedBool);
     }
 
     handleShuffle (e) {
@@ -138,6 +139,7 @@ export default class PlayBar extends React.Component {
         this.setState({queue: queue, oldQueue: oldQueue, currentSongId: currentSongId})
         if (queue.length < 1) {
             this.setState({ playStatus: false })
+            this.props.play(false)
         } else {
             this.setState({ playStatus: true })
         }
@@ -169,15 +171,18 @@ export default class PlayBar extends React.Component {
 
     setCurrentTime() {
         const audio = document.getElementById("audio");
-        this.setState({currentTime: audio.currentTime})
+        const currentTime = audio.currentTime;
+        const progress = document.getElementById("progress");
+        progress.value = currentTime
+        this.setState({ currentTime })
     }
 
     render() {
         let playControl;
         if (this.state.playStatus) {
-            playControl = (<i className="fas fa-pause" onClick={this.handlePlay}></i>)
+            playControl = (<i id="playbar-pause" className="fas fa-pause" onClick={this.handlePlay}></i>)
         } else {
-            playControl = (<i className="fas fa-play" onClick={this.handlePlay}></i>)
+            playControl = (<i id="playbar-play" className="fas fa-play" onClick={this.handlePlay}></i>)
         }
 
         let volIcon;
@@ -239,7 +244,7 @@ export default class PlayBar extends React.Component {
                         </div>
                         <div id="play-progress">
                             <div className="time-stamp" style={{ visibility: `${status}`}}>{this.formatDuration(this.state.currentTime)}</div>
-                            <input type="range" id="progress" value={this.state.currentTime} max={length} onChange={this.handleScrub}/>
+                            <input type="range" defaultValue={0} id="progress" max={length} onChange={this.handleScrub}/>
                             <div className="time-stamp" style={{ visibility: `${status}`}}>{this.formatDuration((length-this.state.currentTime))}</div>
                         </div>
                         <audio id="audio" src={`${media}`} autoPlay 

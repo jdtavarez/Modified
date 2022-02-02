@@ -22,7 +22,7 @@ export default class SideNav extends React.Component {
         return (
             <div className="web-nav-bar">
                 <Link to="/"className="sidebar-logo">
-                    <img src={window.logoWhite} alt="modified logo" />
+                    <img src={window.logoWhite} alt="modified logo"/>
                     <p>Modified</p>
                 </Link>
                 <div className="nav-func">

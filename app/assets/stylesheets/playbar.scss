@@ -90,7 +90,7 @@
     color: white;
 }
 
-.fas.fa-play, .fas.fa-pause {
+#playbar-play, #playbar-pause {
     color: black;
     background-color: white;
     border-radius: 50px;
@@ -98,7 +98,7 @@
     font-size: 14px;
 }
 
-.fas.fa-play:hover, .fas.fa-pause:hover {
+#playbar-play:hover, #playbar-pause:hover {
     transform: scale(1.1);
 }
 
