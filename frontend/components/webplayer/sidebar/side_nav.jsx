@@ -25,11 +25,15 @@ export default class SideNav extends React.Component {
                     <img src={window.logoWhite} alt="modified logo"/>
                     <p>Modified</p>
                 </Link>
-                <div className="nav-func">
-                    {/* <a href="#">Home</a>
-                    <a href="#">Search</a>
-                    <a href="#">Your Library</a> */}
-                </div>
+                <div id="nav-spacer"></div>
+                <Link className="nav-playlist" to="/web/">
+                    <i className="fas fa-home"></i>
+                    <div className="playlist-text">Home</div>
+                </Link>
+                <Link className="nav-playlist" to="/web/search/">
+                    <i className="fas fa-search"></i>
+                    <div className="playlist-text">Search</div>
+                </Link>
                 <Link className="nav-playlist" onClick={this.handleClick} to="/web/">
                     <i className="fas fa-plus-square"></i>
                     <div className="playlist-text">Create Playlist</div>

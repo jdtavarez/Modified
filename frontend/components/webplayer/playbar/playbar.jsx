@@ -33,6 +33,12 @@ export default class PlayBar extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (this.props.playing !== prevProps.playing) {
+            const audio = document.getElementById("audio");
+            this.props.playing ? audio.play() : audio.pause()
+            this.setState({ playStatus: this.props.playing })
+        }
+
         if (this.props.queue !== prevProps.queue) {
             const queueContents = Object.assign({}, this.props.contents.contents);
             const immutableQueue = this.props.contents.contentIds;
@@ -86,7 +92,7 @@ export default class PlayBar extends React.Component {
             e.target.classList.remove("play-clicked")
 
             const unshuffleQueuePivot = this.state.currentSongId
-            const newQueue = this.state.immutableQueue.slice(unshuffleQueuePivot, -1);
+            const newQueue = this.state.immutableQueue.slice(unshuffleQueuePivot-1);
             const oldQueue = this.state.immutableQueue.slice(0, unshuffleQueuePivot)
             this.setState({shuffled: false, shuffledQueueState: null, queue: newQueue, oldQueue: oldQueue})
         } 
@@ -114,9 +120,8 @@ export default class PlayBar extends React.Component {
             this.setState({ repeated: true, repeatedQueueState: unrepeatedQueue, queue: repeatedQueue })
         } else {
             e.target.classList.remove("play-clicked")
-
             const queuePivot = this.state.currentSongId
-            const newQueue = this.state.immutableQueue.slice(queuePivot, -1);
+            const newQueue = this.state.immutableQueue.slice(queuePivot-1, -1);
             const oldQueue = this.state.immutableQueue.slice(0, queuePivot)
             this.setState({ repeated: false, repeatedQueueState: null, queue: newQueue, oldQueue: oldQueue })
         }

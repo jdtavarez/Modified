@@ -9,9 +9,9 @@ const playbarReducer = (state = {}, action) => {
         case CLEAR_QUEUE:
             return Object.assign({}, state)
         case RECEIEVE_CURRENT_CONTENT:
-            return Object.assign({}, {currentContent: action.contentId}, state)
+            return Object.assign({}, state, {currentContent: action.contentId})
         case PLAY:
-            return Object.assign({}, {playing: action.playBool}, state)
+            return Object.assign({}, state, {playing: action.playBool})
         default: 
             return state;
     }

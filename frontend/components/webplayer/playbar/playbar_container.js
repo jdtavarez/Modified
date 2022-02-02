@@ -12,7 +12,7 @@ const mSTP = (state) => {
         queue: state.ui.playbar.queue,
         queueIds: state.ui.playbar.queueIds,
         currentContent: state.ui.playbar.currentContent,
-        playing: state.ui.playing
+        playing: state.ui.playbar.playing
     })
 }
 

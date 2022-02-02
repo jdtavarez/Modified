@@ -212,7 +212,7 @@ export default class SignUpForm extends React.Component {
                     <h2 className="signup-h2">Sign up for free to start listening.</h2>
 
                     <div id="signup-fb-container">
-                        <Link onClick={this.signUpDemoUser} id="sign-up-fb" >Sign up as Demo user</Link>
+                        <a onClick={this.signUpDemoUser} id="sign-up-fb" >Sign up as Demo user</a>
                     </div>
 
                     <div id="signup-option-divider">
@@ -252,8 +252,8 @@ export default class SignUpForm extends React.Component {
                         <div id="birth-boxes">
                             <div className="birth-select-box">
                                 <label>Month</label>
-                                <select className="signup-input" name="user[month]" id="month-input" onChange={this.updateInput} onBlur={this.errorsHelper}>
-                                    <option selected disabled value="">Month</option>
+                                <select defaultValue={'DEFAULT'} className="signup-input" name="user[month]" id="month-input" onChange={this.updateInput} onBlur={this.errorsHelper}>
+                                    <option disabled value="DEFAULT">Month</option>
                                     <option className="month" value="01">January</option>
                                     <option className="month" value="02">February</option>
                                     <option className="month" value="03">March</option>

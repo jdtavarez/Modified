@@ -28,7 +28,7 @@
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    margin-left: 5px;
+    margin-left: 10px;
     margin-bottom: 20px;
     transition: color .25s ease;
 }
@@ -37,12 +37,16 @@
     color: white;
 }
 
-.fas.fa-plus-square {
-    font-size: 30px;
+.fas.fa-plus-square, .fas.fa-home, .fas.fa-search {
+    font-size: 28px;
 }
 
 .playlist-text {
-    margin-left: 15px;
+    margin-left: 20px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 17px;
+}
+
+#nav-spacer {
+    height: 30px;
 }
