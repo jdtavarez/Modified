@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import PlayBar from "./playbar";
 import { fetchPlaylistContents } from "../../../actions/content_actions";
-import { receiveCurrentContent, play, pause } from "../../../actions/play_actions";
+import { receiveCurrentContent, play } from "../../../actions/play_actions";
 
 const mSTP = (state) => {
     return ({
@@ -18,7 +18,7 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => ({
     fetchPlaylistContents: (playlistId) => dispatch(fetchPlaylistContents(playlistId)),
-    receiveCurrentContent: () => dispatch(receiveCurrentContent(contentId)),
+    receiveCurrentContent: (contentId) => dispatch(receiveCurrentContent(contentId)),
     play: (playBool) => dispatch(play(playBool)),
 })
 

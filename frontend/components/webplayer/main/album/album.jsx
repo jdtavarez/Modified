@@ -8,7 +8,6 @@ export default class Album extends React.Component {
         this.state = {
             hash_location: props.match.params[0]
         }
-        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount () {
@@ -21,10 +20,6 @@ export default class Album extends React.Component {
             const id = parseInt(this.props.match.params[0])
             this.props.fetchAlbumContents(id)
         }
-    }
-
-    handleClick () {
-        
     }
 
     render () {
@@ -67,7 +62,6 @@ export default class Album extends React.Component {
             </div>
             <div className="playlist-contents">
                 <div className="playlist-tools">
-                    <i id="top-options" className="fas fa-ellipsis-h"></i>
                 </div>
                 <div className="content-index">
                         <div className="content-index-header">

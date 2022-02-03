@@ -18,3 +18,18 @@ export const fetchContent = (contentId) => (
         url: `api/contents/${contentId}`
     })
 )
+
+export const createPlaylistContent = (playlist_id, content_id) => (
+    $.ajax({
+        method: "POST",
+        url: `api/playlist_contents`,
+        data: { playlist_id, content_id }
+    })
+)
+
+export const deletePlaylistContent = (playlist_content_id) => (
+    $.ajax({
+        method: "DELETE",
+        url: `api/playlist_contents/${playlist_content_id}`
+    })
+)

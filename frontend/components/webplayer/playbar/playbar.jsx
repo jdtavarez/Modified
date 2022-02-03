@@ -148,6 +148,7 @@ export default class PlayBar extends React.Component {
         } else {
             this.setState({ playStatus: true })
         }
+        this.props.receiveCurrentContent(currentSongId);
     }
 
     handlePrev() {
@@ -162,6 +163,7 @@ export default class PlayBar extends React.Component {
         } else {
             this.setState({ playStatus: true })
         }
+        this.props.receiveCurrentContent(prevSong);
     }
 
     handleScrub(e) {

@@ -5,9 +5,9 @@ const albumsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_ALBUMS:
             const albumIds = Object.keys(action.albums)
-            return Object.assign({}, action.albums, { albumIds: albumIds });
+            return Object.assign({}, state, action.albums, { albumIds: albumIds });
         case RECEIVE_ALBUM:
-            return Object.assign({}, { [action.album.id]: action.album });
+            return Object.assign({}, state, { [action.album.id]: action.album });
         default:
             return state;
     }

@@ -12,7 +12,12 @@ export default class AlbumContentIndexItem extends React.Component {
         this.handleDoubleClick = this.handleDoubleClick.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
         this.handleMouseOut = this.handleMouseOut.bind(this);
-        // this.handleButtonClick = this.handleButtonClick.bind(this);
+        this.handleNavClick = this.handleNavClick.bind(this);
+        this.addPlistMouseOver = this.addPlistMouseOver.bind(this);
+        this.addPlistMouseOff = this.addPlistMouseOff.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
+        this.addtoPlaylist = this.addtoPlaylist.bind(this);
+        this.collapseMenu = this.collapseMenu.bind(this);
     }
 
     formatDuration() {
@@ -46,8 +51,57 @@ export default class AlbumContentIndexItem extends React.Component {
         this.setState({ mouseOver: false })
     }
 
-    render () {
+    handleNavClick(e) {
+        e.stopPropagation();
+        const container = document.getElementById(this.props.content.id);
+        container.classList.add("display-items");
 
+        const body = document.getElementsByTagName("BODY")[0];
+
+        let bgModal = document.getElementById('bg-modal');
+        if (!bgModal) {
+            bgModal = document.createElement("DIV");
+            bgModal.setAttribute('class', 'drop-background');
+            bgModal.setAttribute('id', 'bg-modal');
+            body.append(bgModal);
+            document.addEventListener("click", this.handleBlur);
+        }
+    }
+
+    addPlistMouseOver() {
+        const playlist = document.getElementById(`hp${this.props.content.id}`);
+        playlist.classList.add("display-items");
+    }
+
+    addPlistMouseOff() {
+        const playlist = document.getElementById(`hp${this.props.content.id}`);
+        playlist.classList.remove("display-items");
+    }
+
+    handleBlur() {
+        const bgModal = document.getElementsByClassName('drop-background')[0];
+        bgModal.remove();
+        this.collapseMenu();
+        document.removeEventListener("click", this.handleBlur)
+    }
+
+    addtoPlaylist(e) {
+        e.stopPropagation();
+        const playlistId = e.target.id;
+        const contentId = this.props.content.id;
+        this.props.createPlaylistContentStable(playlistId, contentId);
+        this.handleBlur();
+        this.collapseMenu();
+    }
+
+    collapseMenu() {
+        const menus = document.getElementsByClassName('display-items');
+        for (let i = 0; i < menus.length; i++) {
+            menus[i].classList.remove('display-items')
+        }
+    }
+
+    render () {
         const options = this.state.mouseOver ? <i id="index-options" className="fas fa-ellipsis-h"></i> : <div id="index-options"></div>;
 
         let position; 
@@ -59,8 +113,23 @@ export default class AlbumContentIndexItem extends React.Component {
                 position = (<i id="index-play" className="fas fa-play" onClick={this.handleDoubleClick}></i>)
             }
         } else {
-            position = <div>{this.props.position}</div>
+            position = <div>{this.props.content.position}</div>
         }
+
+        const playlistIndex = this.props.playlists ? Object.values(this.props.playlists).slice(0, -1).map((playlist) => (<div id={playlist.id} key={playlist.id} onClick={this.addtoPlaylist} > {playlist.title} </div>)) : ("");
+
+        const playlist_nav = (<div id={this.props.content.id} className="index-dropdown-content">
+            <div className="index-options-list">
+                <div>
+                    <div className="playlists-list" onMouseOver={this.addPlistMouseOver}>
+                        Add to playlist
+                    </div>
+                    <div id={`hp${this.props.content.id}`} className="hidden-playlists">
+                        {playlistIndex.reverse()}
+                    </div>
+                </div>
+            </div>
+        </div>)
 
         return (
             <div className="al-content-index-item" onDoubleClick={this.handleDoubleClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
@@ -77,8 +146,9 @@ export default class AlbumContentIndexItem extends React.Component {
                 </div>
                 <div className="date-added"></div>
                 <div className="duration">{this.formatDuration()}</div>
-                <div className="index-options-container">
+                <div className="index-options-container" onClick={this.handleNavClick}>
                     {options}
+                    {playlist_nav}
                 </div>
             </div>
         )

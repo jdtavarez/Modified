@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import AlbumContentIndexItem from "./album_content_index_item";
 import { receiveQueue, clearQueue, receiveCurrentContent, play } from "../../../../actions/play_actions";
+import { createPlaylistContentStable } from "../../../../actions/content_actions"
 
 const mSTP = (state) => {
     return ({
@@ -8,6 +9,7 @@ const mSTP = (state) => {
         album: state.entities.contents.album,
         contents: state.entities.contents,
         currentContent: state.ui.playbar.currentContent,
+        playlists: state.entities.playlists,
         playing: state.ui.playbar.playing
     })
 }
@@ -16,7 +18,8 @@ const mDTP = (dispatch) => ({
     receiveQueue: (queue) => dispatch(receiveQueue(queue)),
     clearQueue: () => dispatch(clearQueue()),
     receiveCurrentContent: (contentId) => dispatch(receiveCurrentContent(contentId)),
-    play: (playBool) => dispatch(play(playBool))
+    play: (playBool) => dispatch(play(playBool)),
+    createPlaylistContentStable: (playlistId, contentId) => dispatch(createPlaylistContentStable(playlistId, contentId)),
 })
 
 export default connect(mSTP, mDTP)(AlbumContentIndexItem);

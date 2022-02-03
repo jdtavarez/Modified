@@ -11,8 +11,9 @@ if @playlist_contents
         (0...@playlist_contents.length).each do |i|
             content = @playlist_contents[i].content
             position = @playlist_contents[i].position
-            date_added = @playlist.contents[i].updated_at
-            json.set! content.id do
+            date_added = @playlist_contents[i].created_at
+            playlist_content_id = @playlist_contents[i].id
+            json.set! playlist_content_id do
                 json.id content.id
                 json.title content.title
                 json.length content.length
@@ -25,6 +26,7 @@ if @playlist_contents
                 json.position position
                 json.date_added date_added
                 json.genre content.genre
+                json.playlist_content_id playlist_content_id
             end
         end
     end

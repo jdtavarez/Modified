@@ -7,18 +7,25 @@ class Api::PlaylistContentsController < ApplicationController
     end
 
     def create
-        @playlist_content = PlaylistContent.new(@playlist.id, @content.id)
+        @playlist_content = PlaylistContent.new
         @playlist = Playlist.find(params[:playlist_id])
-        @content = Content.find(params[:content_id])
-        @playlist_content = PlaylistContent.new(@playlist.id, @content.id)
-        render json: @playlist_song.errors.full_messages unless @playlist_content.save 
+        playlist_length = @playlist.contents.size
+        @playlist_content.playlist_id = params[:playlist_id]
+        @playlist_content.content_id = params[:content_id]
+        @playlist_content.position = playlist_length
+        @playlist_contents = PlaylistContent.includes(:content).where(playlist_id: params[:playlist_id])
+        if @playlist_content.save 
+            render "api/playlist_contents/show" 
+        else 
+            render json: @playlist_content.errors.full_messages 
+        end
     end
 
     def destroy 
-        @playlist_content = PlaylistContent.where(playlist_id: params[:playlist_id], content_id: params[:content_id])
+        @playlist_content = PlaylistContent.find(params[:id])
+        @playlist = @playlist_content.playlist
+        @playlist_contents = PlaylistContent.includes(:content).where(playlist_id: @playlist.id)
         @playlist_content.destroy
-        @playlist_contents = PlaylistContent.includes(:content).where(playlist_id: params[:playlist_id])
         render "api/playlist_contents/show"
     end
-
 end

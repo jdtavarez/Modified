@@ -16,6 +16,9 @@ export default class PlaylistContentIndexItem extends React.Component {
         this.addPlistMouseOver = this.addPlistMouseOver.bind(this);
         this.addPlistMouseOff = this.addPlistMouseOff.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
+        this.addtoPlaylist = this.addtoPlaylist.bind(this);
+        this.removeFromPlaylist = this.removeFromPlaylist.bind(this);
+        this.collapseMenu = this.collapseMenu.bind(this);
     }
 
     formatDate () {
@@ -60,36 +63,67 @@ export default class PlaylistContentIndexItem extends React.Component {
 
     handleNavClick(e) {
         e.stopPropagation();
-        const container = document.getElementsByClassName("index-dropdown-content")[0];
-        container.classList.toggle("display-items");
-        document.addEventListener("click", this.handleBlur);
-        
+        const container = document.getElementById(this.props.content.playlist_content_id);
+        container.classList.add("display-items");
+
+        const body = document.getElementsByTagName("BODY")[0];
+
+        let bgModal = document.getElementById('bg-modal');
+        if (!bgModal) {
+            bgModal = document.createElement("DIV");
+            bgModal.setAttribute('class', 'drop-background');
+            bgModal.setAttribute('id', 'bg-modal');
+            body.append(bgModal);
+            document.addEventListener("click", this.handleBlur);
+        }
     }
 
     addPlistMouseOver() {
-        const container = document.getElementsByClassName("hidden-playlists")[0];
-        container.classList.add("display-items");
+        const playlist = document.getElementById(`hp${this.props.content.playlist_content_id}`);
+        playlist.classList.add("display-items");
     }
 
     addPlistMouseOff() {
-        const container = document.getElementsByClassName("hidden-playlists")[0];
-        container.classList.remove("display-items");
+        const playlist = document.getElementById(`hp${this.props.content.playlist_content_id}`);
+        playlist.classList.remove("display-items");
     }
 
     handleBlur() {
-        const container = document.getElementsByClassName("index-dropdown-content")[0];
-        const playlist = document.getElementsByClassName("hidden-playlists")[0];
-        if (playlist) {
-            [container, playlist].forEach(element => element.classList.toggle('display-items'))
-        } else {
-            container.classList.toggle("display-items");
-        }
+        const bgModal = document.getElementsByClassName('drop-background')[0];
+        bgModal.remove();
+        this.collapseMenu();   
         document.removeEventListener("click", this.handleBlur)
     }
 
+    addtoPlaylist(e) {
+        e.stopPropagation();
+        const playlistId = e.target.id;
+        const contentId = this.props.content.id;
+        if (this.props.playlist.id === parseInt(playlistId)) {
+            this.props.createPlaylistContent(playlistId, contentId);
+        } else {
+            this.props.createPlaylistContentStable(playlistId, contentId);
+        }
+        this.handleBlur();
+        this.collapseMenu();        
+    }
+
+    removeFromPlaylist(e) {
+        e.stopPropagation();
+        const contentId = parseInt(this.props.content.playlist_content_id);
+        this.props.deletePlaylistContent(contentId);
+        this.collapseMenu();
+        this.handleBlur();
+    }
+
+    collapseMenu() {
+        const menus = document.getElementsByClassName('display-items');
+        for (let i = 0; i < menus.length; i++) {
+            menus[i].classList.remove('display-items')
+        }
+    }
 
     render () {
-
         let position;
 
         if (this.state.mouseOver) {
@@ -99,31 +133,29 @@ export default class PlaylistContentIndexItem extends React.Component {
                 position = (<i id="index-play" className="fas fa-play" onClick={this.handleDoubleClick}></i>)
             }
         } else {
-            position = <div>{this.props.position}</div> 
+            position = <div>{this.props.idx+1}</div> 
         }
 
         const options = this.state.mouseOver ? <i id="index-options" className="fas fa-ellipsis-h"></i> : <div id="index-options"></div>;
 
-        const playlistIndex = this.props.playlists ? Object.values(this.props.playlists).slice(0, -1).map((playlist) => (<div key={playlist.id}> {playlist.title} </div>)) : ("");
+        const playlistIndex = this.props.playlists ? Object.values(this.props.playlists).slice(0, -1).map((playlist) => (<div id={playlist.id} key={playlist.id} onClick={this.addtoPlaylist} > {playlist.title} </div>)) : ("");
 
-        let playlist_nav;
-
-        if (this.props.currentUser.id === this.props.creator_id) {
-            playlist_nav = (<div className="index-dropdown-content">
-                <div className="index-options-list">
-                    <div>
-                        <div className="playlists-list" onMouseOver={this.addPlistMouseOver}>
-                            Add to playlist
-                        </div>
-                        <div className="hidden-playlists">
-                            {playlistIndex}
-                        </div>
+        const removeFromPlist = (<a onMouseOver={this.addPlistMouseOff} onClick={this.removeFromPlaylist}>Remove from this playlist</a>);
+    
+        const playlist_nav = (<div id={this.props.content.playlist_content_id} className="index-dropdown-content">
+            <div className="index-options-list">
+                <div>
+                    <div className="playlists-list" onMouseOver={this.addPlistMouseOver}>
+                        Add to playlist
                     </div>
-                    <a onMouseOver={this.addPlistMouseOff}>Remove from this playlist</a>
+                    <div id={`hp${this.props.content.playlist_content_id}`} className="hidden-playlists">
+                        {playlistIndex.reverse()}
+                    </div>
                 </div>
-                
-            </div>)
-        }
+                {this.props.currentUser.id === this.props.creator_id ? removeFromPlist : '' }
+            </div>
+        </div>)
+    
 
         return (
             <div className="content-index-item" onDoubleClick={this.handleDoubleClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
