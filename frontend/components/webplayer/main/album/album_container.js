@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Album from "./album";
-import { fetchAlbumContents } from "../../../actions/content_actions";
+import { fetchAlbumContents } from "../../../../actions/content_actions";
 
 const mSTP = (state) => {
     return ({

@@ -27,3 +27,74 @@
 .playlist-index-item:hover a {
     color: white;
 }
+
+.index-options-container {
+    position: relative;
+}
+
+.index-dropdown-content, .hidden-playlists {
+    display: none;
+    position: absolute;
+    background-color: rgb(38, 38, 38);
+    width: 200px;
+    z-index: 10;
+    padding: 1px;
+    color: white;
+    left: -200px;
+    z-index: 10;
+}
+
+.index-dropdown-content > * {
+    width: 100%;
+    z-index: 10;
+}
+
+.display-items {
+    display: block;
+}
+
+.index-options-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.index-options-list > * {
+    font-size: 12px;
+    padding: 15px;
+    margin: 3px;
+    border-radius: 3px;
+    z-index: 10;
+}
+
+.hidden-playlists {
+    top: -50%;
+    max-height: 195px;
+    overflow-y: scroll;
+}
+
+.hidden-playlists > * {
+    font-size: 12px;
+    padding: 15px;
+    margin: 3px;
+    border-radius: 3px;
+    z-index: 10;
+}
+
+.index-options-list > *:hover, .hidden-playlists > *:hover {
+    cursor: pointer;
+    background-color: rgb(82, 82, 82);
+}
+
+.playlist-list {
+    position: relative;
+}
+
+.drop-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 6;
+}

@@ -125,7 +125,7 @@ export default class Playlist extends React.Component {
                             <div className="album">ALBUM</div>
                             <div className="date-added">DATE ADDED</div>
                             <div className="duration"><i className="far fa-clock"></i></div>
-                            <div className="content-options"></div>
+                            <div className="index-options-container"></div>
                         </div>
                     {content_index}
                 </div>

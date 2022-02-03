@@ -162,6 +162,7 @@
     display: flex;
     align-items: center;
     border-radius: 5px;
+    z-index: 100;
 }
 
 .content-index-item:hover {
@@ -179,6 +180,7 @@
     display: flex;
     align-items: center;
     border-radius: 5px;
+    z-index: 10;
 }
 
 .al-content-index-item:hover {
@@ -271,7 +273,6 @@
     margin: 3px;
     border-radius: 3px;
 }
-
 
 .pl-nav-dropdown-content a:hover {
     cursor: pointer;

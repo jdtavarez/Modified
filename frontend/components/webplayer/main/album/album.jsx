@@ -76,7 +76,7 @@ export default class Album extends React.Component {
                             <div className="album"></div>
                             <div className="date-added"></div>
                             <div className="duration"><i className="far fa-clock"></i></div>
-                            <div className="content-options"></div>
+                            <div className="index-options-container"></div>
                         </div>
                     {content_index}
                 </div>

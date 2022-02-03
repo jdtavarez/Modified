@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../../actions/modal_actions';
-import EditPlaylistFormContainer from './edit_playlist_form';
-import DeletePlaylistFormContainer from './delete_playlist_form';
+import EditPlaylistFormContainer from './playlist/edit_playlist_form';
+import DeletePlaylistFormContainer from './playlist/delete_playlist_form';
 
 const mSTP = (state) => ({
     modal: state.ui.modals

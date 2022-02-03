@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Playlist from "./playlist";
-import { fetchPlaylistContents } from "../../../actions/content_actions";
-import { openModal } from "../../../actions/modal_actions";
+import { fetchPlaylistContents } from "../../../../actions/content_actions";
+import { openModal } from "../../../../actions/modal_actions";
 
 const mSTP = (state) => {
     return ({

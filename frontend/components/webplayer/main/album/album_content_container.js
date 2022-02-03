@@ -1,14 +1,13 @@
 import { connect } from "react-redux";
-import PlaylistContentIndexItem from "./playlist_content_index_item";
-import { receiveQueue, clearQueue, receiveCurrentContent, play } from "../../../actions/play_actions";
+import AlbumContentIndexItem from "./album_content_index_item";
+import { receiveQueue, clearQueue, receiveCurrentContent, play } from "../../../../actions/play_actions";
 
 const mSTP = (state) => {
     return ({
         currentUser: state.entities.users[state.session.id],
-        playlist: state.entities.contents.playlist,
+        album: state.entities.contents.album,
         contents: state.entities.contents,
         currentContent: state.ui.playbar.currentContent,
-        playlists: state.entities.playlists,
         playing: state.ui.playbar.playing
     })
 }
@@ -20,4 +19,4 @@ const mDTP = (dispatch) => ({
     play: (playBool) => dispatch(play(playBool))
 })
 
-export default connect(mSTP, mDTP)(PlaylistContentIndexItem);
+export default connect(mSTP, mDTP)(AlbumContentIndexItem);

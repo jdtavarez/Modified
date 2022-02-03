@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updatePlaylist } from "../../../actions/playlist_actions";
-import { fetchPlaylistContents } from "../../../actions/content_actions";
-import { fetchCreatorPlaylists } from "../../../actions/playlist_actions";
-import { closeModal } from '../../../actions/modal_actions'
+import { updatePlaylist, fetchCreatorPlaylists } from "../../../../actions/playlist_actions";
+import { fetchPlaylistContents } from "../../../../actions/content_actions";
+import { closeModal } from '../../../../actions/modal_actions'
 
 class EditPlaylistForm extends React.Component {
     constructor(props) {
