@@ -1,4 +1,4 @@
-json.set! contents 
+json.set! :contents do
     @contents.each do |content|
         json.set! content.id do 
             json.id content.id
@@ -13,7 +13,7 @@ json.set! contents
         end
     end
 end
-json.set! artists
+json.set! :artists do
     @artists.each do |artist|
         json.set! artist.id do 
             json.id artist.id
@@ -22,7 +22,7 @@ json.set! artists
         end
     end
 end
-json.set! albums
+json.set! :albums do
     @albums.each do |album|
         json.set! album.id do
             json.id album.id
@@ -32,7 +32,7 @@ json.set! albums
         end
     end
 end
-json.set! playlists
+json.set! :playlists do
     @playlists.each do |playlist|
         json.set! playlist.id do
             json.id playlist.id

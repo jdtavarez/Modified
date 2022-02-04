@@ -1,4 +1,4 @@
-import { RECEIVE_ALBUMS, RECEIVE_ALBUM } from '../actions/album_actions'
+import { RECEIVE_ALBUMS, RECEIVE_ALBUM, CLEAR_ALBUM } from '../actions/album_actions'
 
 const albumsReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -8,6 +8,8 @@ const albumsReducer = (state = {}, action) => {
             return Object.assign({}, state, action.albums, { albumIds: albumIds });
         case RECEIVE_ALBUM:
             return Object.assign({}, state, { [action.album.id]: action.album });
+        case CLEAR_ALBUM:
+            return Object.assign({});
         default:
             return state;
     }

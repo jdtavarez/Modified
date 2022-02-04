@@ -22,6 +22,10 @@ export default class Album extends React.Component {
         }
     }
 
+    componentWillUnmount () {
+        this.props.clearAlbum();
+    }
+
     render () {
         let album;
         let creator;
@@ -38,9 +42,11 @@ export default class Album extends React.Component {
         }
 
         let total_duration = 0;
-        const content_index = this.props.contents.album && this.props.contents.contents ? Object.values(this.props.contents.contents).map(content => {
+        const content_index = this.props.contents.album && this.props.contents.contents ? 
+        Object.values(this.props.contents.contents).map(content => {
             total_duration += content.length;
-            return (<AlbumContentIndexItem key={content.id} content={content} position={content.position} creator={creator} creator_id={creator_id}/>)}) : ("")
+            return (<AlbumContentIndexItem key={content.id} content={content} position={content.position} creator={creator} creator_id={creator_id}/>)
+        }) : ("")
 
         total_duration = Math.floor(total_duration / 60);
         const total_items = content_index.length

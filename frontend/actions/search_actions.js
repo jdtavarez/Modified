@@ -15,7 +15,7 @@ export const fetchCategories = () => (dispatch) => (
 
 export const RECEIVE_CATEGORY = "RECEIVE_CATEGORY"
 
-export const receiveCategories = (category) => ({
+export const receiveCategory = (category) => ({
     type: RECEIVE_CATEGORY,
     category
 });
@@ -38,3 +38,9 @@ export const fetchSearchContents = () => (dispatch) => (
         dispatch(receiveSearchContent(response))
     })
 )
+
+export const CLEAR_CATEGORY = "CLEAR_CATEGORY"
+
+export const clearCategory = () => ({
+    type: CLEAR_CATEGORY
+}) 
