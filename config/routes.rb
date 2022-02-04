@@ -31,6 +31,10 @@ Rails.application.routes.draw do
 
     resources :contents, only: [:show]
 
+    resources :categories, only: [:index, :show]
+
+    resources :search, only: [:index]
+
   end
 
 end

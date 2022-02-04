@@ -8,13 +8,13 @@ class Artist < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :Album
 
-    has_many :songs,
+    has_many :contents,
     foreign_key: :artist_id, 
-    class_name: :Song
+    class_name: :Content
 
     has_many :categories,
     through: :category, 
-    source: :songs
+    source: :contents
 
     has_many :playlists, as: :creator
 

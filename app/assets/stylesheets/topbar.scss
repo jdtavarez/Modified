@@ -1,8 +1,56 @@
 #web-top-bar {
     position: absolute;
-    height: 30px;
-    background-color: red;
+    height: 60px;
+    background-color: #272727;
     top: 0;
-    width: 100%;
-    left: 260px;
+    width: calc(100% - 240px);
+    left: 240px;
+    z-index: 1000;
+}
+
+#top-container {
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+#navigate-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 20px;
+    width: 90px;
+    height: 40px;
+    color: white;
+}
+
+.fa-chevron-left, .fa-chevron-right {
+    background-color: black;
+    padding: 10px 14px 10px 14px;
+    border-radius: 100px;
+    font-size: 20px;
+    text-align: center;
+    transition: all .25s ease;
+}
+
+.fa-chevron-left:hover, .fa-chevron-right:hover {
+    background-color: rgb(30, 30, 30);
+}
+
+#profile-button {
+    border-radius: 50px;
+    margin-right: 20px;
+    height: 32px;
+    width: 145px;
+    background-color: green;
+}
+
+#search-bar {
+    outline: none;
+    border: none;
+    padding: 20px;
+    border-radius: 50px;
 }
