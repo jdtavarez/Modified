@@ -7,5 +7,4 @@ class Api::SearchController < ApplicationController
         @playlists = Playlist.all
     end
 
-
 end
