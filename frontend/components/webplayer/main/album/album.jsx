@@ -43,9 +43,9 @@ export default class Album extends React.Component {
 
         let total_duration = 0;
         const content_index = this.props.contents.album && this.props.contents.contents ? 
-        Object.values(this.props.contents.contents).map(content => {
+        Object.values(this.props.contents.contents).map((content,idx) => {
             total_duration += content.length;
-            return (<AlbumContentIndexItem key={content.id} content={content} position={content.position} creator={creator} creator_id={creator_id}/>)
+            return (<AlbumContentIndexItem key={content.id} content={content} position={idx+1} creator={creator} creator_id={creator_id}/>)
         }) : ("")
 
         total_duration = Math.floor(total_duration / 60);
