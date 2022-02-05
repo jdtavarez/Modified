@@ -74,7 +74,7 @@ export default class SearchBar extends React.Component {
         let matches = [];
 
         this.state.allStrings.forEach(string => {
-            if (string.includes(searchString)) {
+            if (string.toLowerCase().includes(searchString.toLowerCase())) {
                 matches.push(string)
             }
         })
