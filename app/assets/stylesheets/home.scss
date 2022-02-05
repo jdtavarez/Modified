@@ -2,13 +2,27 @@
     width: 100%;
     background-color: #1a1a1a;
     overflow-y: scroll;
+    padding-bottom: 100px;
 }
 
 .home-header {
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
     color: white;
     padding: 20px;
-    padding-top: 100px;
-    padding-bottom: 40px;
+    padding-top: 99px;
+    padding-bottom: 105px;
 }
+
+.morning {
+    background: radial-gradient(circle at right, rgba(31, 7, 92, 0.8) 30%, rgba(255, 96, 23, 0.857)  100%);
+}
+
+.afternoon {
+    background: radial-gradient(circle at right, rgb(255, 244, 86) 10%, rgba(255, 255, 255, 0.857) 60%, rgb(39, 82, 255) 100%);
+}
+
+.evening {
+    background: radial-gradient(circle at right, rgb(53, 0, 0) 5%, rgb(0, 0, 0) 50%, rgb(24, 0, 33) 100%);
+}
+

@@ -10,7 +10,6 @@ import Album from './main/album/album_container'
 import Modal from './main/modal'
 import { Switch, Route } from 'react-router'
 
-
 const WebPlayer = () => (
     <div id="web-container">
         <TopBar />
