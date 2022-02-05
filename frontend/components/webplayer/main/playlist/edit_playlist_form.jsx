@@ -95,7 +95,7 @@ class EditPlaylistForm extends React.Component {
                         </div>
                     </div>
                     <input type="submit" value="SAVE"/>
-                    <p>By proceeding, you agree to give Modified access to the image you choose to upload. Please make sure you have the right to upload the image.</p>
+                    {/* <p>By proceeding, you agree to give Modified access to the image you choose to upload. Please make sure you have the right to upload the image.</p> */}
                 </div>
             </form>
         )

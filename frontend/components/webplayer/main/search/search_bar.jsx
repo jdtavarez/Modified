@@ -109,6 +109,8 @@ export default class SearchBar extends React.Component {
             }
         })
 
+        this.props.receiveContents({contents: matchContents});
+
         this.setState({ matchContents, matchArtists, matchAlbums, matchPlaylists})
     }
 
@@ -117,8 +119,7 @@ export default class SearchBar extends React.Component {
 
         const artistNames = this.props.searchContents.artist_names
 
-        contentsIndex = this.state.matchContents ? Object.values(this.state.matchContents).map(content => <SearchContentIndexItem key={content.id} 
-        artist={{ name: content.artist_name, id: content.artist_id }} album={{ title: content.album_title, id: content.album_id }} content={content}/>) : ("");
+        contentsIndex = this.state.matchContents ? Object.values(this.state.matchContents).map((content, idx) => <SearchContentIndexItem key={content.id} position={idx+1} artist={{ name: content.artist_name, id: content.artist_id }} album={{ title: content.album_title, id: content.album_id }} content={content}/>) : ("");
 
         artistsIndex = this.state.matchArtists ? Object.values(this.state.matchArtists).map(artist => (<ArtistCard key={`artist-${artist.id}`} id={artist.id} artist_name={artist.artist_name} />)
         ) : ("");

@@ -87,7 +87,7 @@ export default class Playlist extends React.Component {
         let total_duration = 0;
         const content_index = this.props.playlist && this.props.contents.contents ? Object.values(this.props.contents.contents).map((content, idx) => {
             total_duration += content.length;
-            return (<PlaylistContentIndexItem idx={idx} key={content.playlist_content_id} content={content} artist={{name: content.artist_name, id: content.artist_id}} album={{title: content.album_title, id: content.album_id}} position={content.position} creator_id={creator_id}/>)}) : ("")
+            return (<PlaylistContentIndexItem idx={idx} key={content.playlist_content_id} content={content} artist={{name: content.artist_name, id: content.artist_id}} album={{title: content.album_title, id: content.album_id}} position={idx+1} creator_id={creator_id}/>)}) : ("")
 
         total_duration = Math.floor(total_duration / 60);
         const total_items = content_index.length

@@ -111,7 +111,9 @@ export default class PlaylistContentIndexItem extends React.Component {
     removeFromPlaylist(e) {
         e.stopPropagation();
         const contentId = parseInt(this.props.content.playlist_content_id);
-        this.props.deletePlaylistContent(contentId);
+        this.props.deletePlaylistContent(contentId).then(() => {
+            this.props.fetchPlaylist(this.props.playlist);
+        });
         this.collapseMenu();
         this.handleBlur();
     }

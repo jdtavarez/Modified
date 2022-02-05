@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import SearchBar from "./search_bar";
 import { fetchSearchContents } from "../../../../actions/search_actions";
+import { receiveContents } from "../../../../actions/content_actions";
 
 
 const mSTP = (state) => {
@@ -16,7 +17,8 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => ({
     fetchCategories: () => dispatch(fetchCategories()),
     fetchCategory: (categoryId) => dispatch(fetchCategory(categoryId)),
-    fetchSearchContents: () => dispatch(fetchSearchContents())
+    fetchSearchContents: () => dispatch(fetchSearchContents()),
+    receiveContents: (contents) => dispatch(receiveContents(contents))
 })
 
 export default connect(mSTP, mDTP)(SearchBar);

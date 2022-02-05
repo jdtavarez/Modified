@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import PlaylistContentIndexItem from "./playlist_content_index_item";
 import { receiveQueue, clearQueue, receiveCurrentContent, play } from "../../../../actions/play_actions";
-import { createPlaylistContent, createPlaylistContentStable, deletePlaylistContent } from "../../../../actions/content_actions"
+import { createPlaylistContent, createPlaylistContentStable, deletePlaylistContent,fetchPlaylistContents } from "../../../../actions/content_actions"
 
 const mSTP = (state) => {
     return ({
@@ -21,7 +21,8 @@ const mDTP = (dispatch) => ({
     play: (playBool) => dispatch(play(playBool)),
     createPlaylistContent: (playlistId, contentId) => dispatch(createPlaylistContent(playlistId, contentId)),
     createPlaylistContentStable: (playlistId, contentId) => dispatch(createPlaylistContentStable(playlistId, contentId)),
-    deletePlaylistContent: (playlist_content_id) => dispatch(deletePlaylistContent(playlist_content_id))
+    deletePlaylistContent: (playlist_content_id) => dispatch(deletePlaylistContent(playlist_content_id)),
+    fetchPlaylistContents: (playlistId) => dispatch(fetchPlaylistContents(playlistId)),
 })
 
 export default connect(mSTP, mDTP)(PlaylistContentIndexItem);
