@@ -23,6 +23,9 @@ export default class NavBar extends React.Component {
     render() {
         const nav_display = this.props.currentUser ? (
             <div className="splash-links">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/jdtavarez" className="nav-link">Portfolio</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/jdtavarez" className="nav-link">GitHub</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/julio-tavarez-2404a118b/" className="nav-link">LinkedIn</a>
                 <p className="divider">|</p>
                 <div className="nav-dropdown">
                     <div className="nav-btn" onClick={this.handleNavClick}>
@@ -38,6 +41,9 @@ export default class NavBar extends React.Component {
             </div>
         ) : (
             <div className="splash-links">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/jdtavarez" className="nav-link">Portfolio</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/jdtavarez" className="nav-link" >GitHub</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/julio-tavarez-2404a118b/" className="nav-link">LinkedIn</a>
                 <p className="divider">|</p>
                 <Link to="/signup" className="nav-link">Sign up</Link>
                 <Link to="/login" className="nav-link">Log in</Link>

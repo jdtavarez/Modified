@@ -43,7 +43,83 @@
 #profile-button {
     border-radius: 50px;
     margin-right: 20px;
-    height: 32px;
-    width: 145px;
-    background-color: green;
+    height: 25px;
+    width: 135px;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    transform: all .5s ease;
+}
+
+#profile-button:hover {
+    background-color: #4d4d4d;
+}
+
+.top-profile-photo {
+    height: inherit;
+    border-radius: 100px;
+}
+
+
+.nav-link:hover {
+    color: #1DB954;
+}
+
+.nav-dropdown > * {
+    padding: 8px;
+}
+
+.profile-dropdown {
+    display: inline-block;
+    position: relative;
+    color: rgb(219, 219, 219);
+    text-decoration: none;
+}
+
+.nav-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-btn:hover {
+    color: #1DB954;
+    cursor: pointer;
+}
+
+.pro-dropdown-content {
+    top: inherit;
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a;
+    height: 25;
+    z-index: 1;
+    width: 135px;
+    padding: 8px;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.pro-dropdown-content:hover {
+    background-color: #4d4d4d;
+}
+
+.nav-dropdown-content a:hover {
+    cursor: pointer;
+    color: rgb(31,223,100);
+}
+
+.display-items {
+    display: block;
+}
+
+#pro-arrow {
+    padding-right: 3px;
 }

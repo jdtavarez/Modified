@@ -44,7 +44,7 @@ export default class Category extends React.Component {
         const albums_index =  albums ?
             Object.values(albums).map(album => {
                 const artist_name = artists[album.artist_id].artist_name;
-                return (<AlbumCard key={`album-${album.id}`} id={album.id} title={album.title} artist_name={artist_name} image={album.image_url}/>)
+                return (<AlbumCard key={`album-${album.id}`} id={album.id} title={album.title} artist_name={artist_name} image={album.image_url} artist_id={album.artist_id}/>)
             }) : ("")
 
 
@@ -54,7 +54,7 @@ export default class Category extends React.Component {
 
         return(
             <div className="search">
-                <h1 className="genre-header">{category.genre}</h1>
+                <h1 className={`genre-header ${category.genre}`}>{category.genre}</h1>
                 <h2 className="items-header">Artists</h2>
                 <div className="artists-sideways">
                     {artists_index}

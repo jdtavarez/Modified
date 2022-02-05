@@ -1,5 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import { connect } from "react-redux";
+import { logout } from "../../../actions/session_actions";
 
 
 class TopBar extends React.Component {
@@ -8,6 +11,7 @@ class TopBar extends React.Component {
 
         this.goBack = this.goBack.bind(this);
         this.goForward = this.goForward.bind(this);
+        this.handleNavClick = this.handleNavClick.bind(this);
     }
 
     goBack() {
@@ -18,6 +22,23 @@ class TopBar extends React.Component {
         this.props.history.goForward();
     }
 
+    handleNavClick(e) {
+        e.stopPropagation();
+        const arrow = document.getElementById("pro-arrow");
+        if (arrow.className === 'fas fa-angle-up') {
+            document.removeEventListener("click", this.handleNavClick);
+            arrow.className = 'fas fa-angle-down'
+            const container = document.getElementsByClassName("pro-dropdown-content")[0];
+            container.classList.remove("display-items");
+            
+        } else {
+            document.addEventListener("click", this.handleNavClick);
+            arrow.className = 'fas fa-angle-up';
+            const container = document.getElementsByClassName("pro-dropdown-content")[0];
+            container.classList.add("display-items");
+        }
+    }
+
     render() {
         return (
             <div id="web-top-bar">
@@ -26,7 +47,15 @@ class TopBar extends React.Component {
                         <i onClick={this.goBack} className="fas fa-chevron-left"></i>
                         <i onClick={this.goForward} className="fas fa-chevron-right"></i>
                     </div>
-                    <div id="profile-button">
+                    <div className="profile-dropdown">
+                        <div id="profile-button" onClick={this.handleNavClick}>
+                            <img className="top-profile-photo" src={window.profiles} />
+                            <p className="top-username">{this.props.currentUser.username}</p>
+                            <i className="fas fa-angle-down" id="pro-arrow"></i>
+                        </div>
+                        <div className="pro-dropdown-content">
+                            <a onClick={this.props.logout}>Log out</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,4 +63,14 @@ class TopBar extends React.Component {
     }
 }
 
-export default withRouter(TopBar);
+const mSTP = (state) => ({
+    currentUser: state.entities.users[state.session.id],
+})
+
+const mDTP = (dispatch) => ({
+    logout: () => dispatch(logout())
+})
+
+
+
+export default withRouter(connect(mSTP, mDTP)(TopBar));

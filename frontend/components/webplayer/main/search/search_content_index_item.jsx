@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-export default class AlbumContentIndexItem extends React.Component {
+export default class SearchContentIndexItem extends React.Component {
     constructor(props) {
         super(props)
 
@@ -21,9 +20,9 @@ export default class AlbumContentIndexItem extends React.Component {
     }
 
     formatDuration() {
-        const duration = this.props.content.length
-        const minutes = Math.floor(duration / 60) 
-        let seconds = duration % 60
+        const duration = this.props.content.length;
+        const minutes = Math.floor(duration / 60);
+        let seconds = duration % 60;
         if (seconds < 10) seconds = `0${seconds}`
         return `${minutes}:${seconds}`
     }
@@ -34,20 +33,20 @@ export default class AlbumContentIndexItem extends React.Component {
         const contents = this.props.contents.contents;
         const queueIds = contentIds.slice((startPos - 1));
         const currentContentId = queueIds[0];
-        let queue = {};
-        queueIds.map(contentId => (
-            queue[contentId] = contents[contentId]
-        ))
+        const queue = {};
+        queueIds.map(contentId => (queue[contentId] = contents[contentId]))
         this.props.receiveQueue(queue);
         this.props.receiveCurrentContent(currentContentId);
         this.props.play(true);
     }
 
-    handleMouseOver() {
+    handleMouseOver(e) {
+        e.stopPropagation();
         this.setState({ mouseOver: true })
     }
 
-    handleMouseOut() {
+    handleMouseOut(e) {
+        e.stopPropagation();
         this.setState({ mouseOver: false })
     }
 
@@ -101,10 +100,8 @@ export default class AlbumContentIndexItem extends React.Component {
         }
     }
 
-    render () {
-        const options = this.state.mouseOver ? <i id="index-options" className="fas fa-ellipsis-h"></i> : <div id="index-options"></div>;
-
-        let position; 
+    render() {
+        let position;
 
         if (this.state.mouseOver) {
             if (parseInt(this.props.currentContent) === this.props.content.id && this.props.playing) {
@@ -113,8 +110,10 @@ export default class AlbumContentIndexItem extends React.Component {
                 position = (<i id="index-play" className="fas fa-play" onClick={this.handleDoubleClick}></i>)
             }
         } else {
-            position = <div>{this.props.position}</div>
+            position = <div style={{width: '46px', height: '16px'}}></div>
         }
+
+        const options = this.state.mouseOver ? <i id="index-options" className="fas fa-ellipsis-h"></i> : <div id="index-options"></div>;
 
         const playlistIndex = this.props.playlists ? Object.values(this.props.playlists).slice(0, -1).map((playlist) => (<div id={playlist.id} key={playlist.id} onClick={this.addtoPlaylist} > {playlist.title} </div>)).reverse() : ("");
 
@@ -131,18 +130,21 @@ export default class AlbumContentIndexItem extends React.Component {
             </div>
         </div>)
 
+
         return (
-            <div className="al-content-index-item" onDoubleClick={this.handleDoubleClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
+            <div className="content-index-item" onDoubleClick={this.handleDoubleClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
                 <div className="position">{position}</div>
                 <div className="title">
-                    <div className="al-song-meta-data">
-                        <p className="al-song-title">{this.props.content.title}</p>
-                        <Link className="pl-artist-link" to={`/web/artists/${this.props.creator_id}`}>{this.props.creator}</Link>
+                    <div className="song-meta-data">
+                        <img src={this.props.content.image_url} className="plist-album-cover" alt="" />
+                        <div className="pl-song-info">
+                            <p className="pl-song-title">{this.props.content.title}</p>
+                            <Link className="pl-artist-link" to={`/web/artists/${this.props.artist.id}`}>{this.props.artist.name}</Link>
+                        </div>
                     </div>
                 </div>
                 <div className="album">
-                    <div className="pl-artist-link">
-                    </div>
+                    <Link className="pl-album-link" to={`/web/albums/${this.props.album.id}`}>{this.props.album.title}</Link>
                 </div>
                 <div className="date-added"></div>
                 <div className="duration">{this.formatDuration()}</div>
@@ -152,5 +154,7 @@ export default class AlbumContentIndexItem extends React.Component {
                 </div>
             </div>
         )
+
     }
+
 }

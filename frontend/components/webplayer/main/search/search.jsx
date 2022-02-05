@@ -15,7 +15,7 @@ export default class SearchComp extends React.Component {
     render() {
         const genres = this.props.categories ? 
         this.props.categories.map(genre => (
-            <Link to={`/web/genre/${genre.genre}`} state={{ test: 'test' }} key={genre.id + genre.genre} className={`genre ${genre.genre}`}>{genre.genre}</Link>
+            <Link to={`/web/genre/${genre.genre}`} key={genre.id + genre.genre} className={`genre ${genre.genre}`}>{genre.genre}</Link>
         )) : ('')
 
         const genreContainer = <div id="genre-container">{genres}</div>

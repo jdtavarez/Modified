@@ -1,15 +1,14 @@
 import { connect } from "react-redux";
-import AlbumContentIndexItem from "./album_content_index_item";
+import SearchContentIndexItem from "./search_content_index_item";
 import { receiveQueue, clearQueue, receiveCurrentContent, play } from "../../../../actions/play_actions";
 import { createPlaylistContentStable } from "../../../../actions/content_actions"
 
 const mSTP = (state) => ({
-        currentUser: state.entities.users[state.session.id],
-        album: state.entities.contents.album,
-        contents: state.entities.contents,
-        currentContent: state.ui.playbar.currentContent,
-        playlists: state.entities.playlists,
-        playing: state.ui.playbar.playing
+    currentUser: state.entities.users[state.session.id],
+    contents: state.entities.contents,
+    currentContent: state.ui.playbar.currentContent,
+    playlists: state.entities.playlists,
+    playing: state.ui.playbar.playing
 })
 
 const mDTP = (dispatch) => ({
@@ -20,4 +19,4 @@ const mDTP = (dispatch) => ({
     createPlaylistContentStable: (playlistId, contentId) => dispatch(createPlaylistContentStable(playlistId, contentId)),
 })
 
-export default connect(mSTP, mDTP)(AlbumContentIndexItem);
+export default connect(mSTP, mDTP)(SearchContentIndexItem);

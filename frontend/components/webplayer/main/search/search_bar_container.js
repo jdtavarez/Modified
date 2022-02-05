@@ -8,7 +8,8 @@ const mSTP = (state) => {
         currentUser: state.entities.users[state.session.id],
         playlist: state.entities.contents.playlist,
         contents: state.entities.contents,
-        categories: state.ui.search.categories
+        categories: state.ui.search.categories,
+        searchContents: state.ui.search.searchContents
     })
 }
 

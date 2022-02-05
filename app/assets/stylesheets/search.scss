@@ -43,27 +43,27 @@
     cursor: pointer;
 }
 
-.genre.Electronic {
+.Electronic {
     background-image: linear-gradient(#31dc4d, rgba(51, 255, 126, 0.337));
 }
 
-.genre.Includes.Guitar {
+.Includes.Guitar {
     background-image: linear-gradient(#6cb8ff, #6cb8ff72);
 }
 
-.genre.Energy {
+.Energy {
     background-image: linear-gradient(#fc4a4d, #fc4a4d77);
 }
 
-.genre.Spooky {
+.Spooky {
     background-image: linear-gradient(#b08699, #b0869969);
 }
 
-.genre.Smoo {
+.Smoo {
     background-image: linear-gradient(#648718, #64871869);
 }
 
-.genre.Birthday.Muzak {
+.Birthday.Muzak {
     background-image: linear-gradient(#ffe600, #ffe6008e);
 }
 
@@ -113,9 +113,10 @@
 .genre-header {
     font-size: 60px;
     font-weight: bold;
-    margin: 20px;
-    margin-bottom: 40px;
     color: white;
+    padding: 20px;
+    padding-top: 240px;
+    padding-bottom: 40px;
 }
 
 .artists-sideways {
@@ -125,7 +126,8 @@
 
 .albums-sideways, .artists-sideways {
     display: flex;
-    flex: wrap;
+    flex: 1;
+    flex-wrap: wrap;
 }
 
 .albums-sideways > *, .artists-sideways > * {
@@ -137,4 +139,10 @@
     font-weight: bold;
     margin: 20px;
     color: white;
+}
+
+.search-content-index {
+    width: 95%;
+    color: rgb(155, 155, 155);
+    margin: 20px;
 }
