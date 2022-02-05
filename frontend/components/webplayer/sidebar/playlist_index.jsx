@@ -7,7 +7,6 @@ export default class PlaylistIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchSearchContents();
         this.props.fetchCreatorPlaylists("users", this.props.currentUser.id)
     }
 

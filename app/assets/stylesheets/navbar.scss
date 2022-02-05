@@ -65,7 +65,7 @@
     color: rgb(219, 219, 219);
     text-decoration: none;
     padding: 20px;
-    width: 40%;
+    width: 100px;
 }
 
 .nav-btn {
@@ -81,13 +81,13 @@
 }
 
 .nav-dropdown-content {
-    top: 74px;
+    top: 60px;
     display: none;
     position: absolute;
     background-color: white;
-    width: 100%;
+    width: 100px;
     z-index: 1;
-    padding: 100px;
+    padding: 120px;
 }
 
 .nav-dropdown-content a:hover {

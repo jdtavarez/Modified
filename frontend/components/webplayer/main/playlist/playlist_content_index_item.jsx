@@ -129,7 +129,7 @@ export default class PlaylistContentIndexItem extends React.Component {
         let position;
 
         if (this.state.mouseOver) {
-            if (parseInt(this.props.currentContent) === this.props.content.id && this.props.playing) {
+            if (parseInt(this.props.currentContent) === this.props.content.playlist_content_id && this.props.playing) {
                 position = (<i id="index-pause" className="fas fa-pause" onClick={() => { this.props.play(false) }}></i>)
             } else {
                 position = (<i id="index-play" className="fas fa-play" onClick={this.handleDoubleClick}></i>)

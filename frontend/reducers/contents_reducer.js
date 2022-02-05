@@ -12,7 +12,7 @@ const contentsReducer = (state = {}, action) => {
             action.contents.contents ? contentIds = Object.keys(action.contents.contents) : contentIds = null
             return Object.assign({}, action.contents, { contentIds: contentIds }, state)
         case RECEIVE_PLAYLISTS:
-            return Object.assign({})
+            return Object.assign({}, state)
         default:
             return state;
     }

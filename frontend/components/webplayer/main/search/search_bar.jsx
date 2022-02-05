@@ -26,6 +26,13 @@ export default class SearchBar extends React.Component {
     }
 
     componentDidMount() {
+        if (!this.props.searchContents) {
+            this.props.fetchSearchContents().then(() => {
+                this.formatSearchStrings();
+            })
+        } else {
+            this.formatSearchStrings();
+        }
         const topbar = document.getElementById('navigate-buttons');
         topbar.style.width = '455px';
         const searchBar = document.createElement("INPUT");
@@ -35,15 +42,16 @@ export default class SearchBar extends React.Component {
         searchBar.placeholder = "Songs, artists, albums, or playlists";
         topbar.append(searchBar);
         searchBar.addEventListener("input", this.onInput);
-        this.formatSearchStrings();
     }
 
     componentWillUnmount() {
         const topbar = document.getElementById('navigate-buttons');
         topbar.style.width = '90px';
         const searchBar = document.getElementById('search-bar');
-        searchBar.removeEventListener("input", this.onInput);
-        searchBar.remove();
+        if (searchBar) {
+            searchBar.removeEventListener("input", this.onInput);
+            searchBar.remove();
+        }
     }
 
     formatSearchStrings() {
@@ -117,7 +125,7 @@ export default class SearchBar extends React.Component {
     render() {
         let contentsIndex; let artistsIndex; let albumsIndex; let playlistsIndex;
 
-        const artistNames = this.props.searchContents.artist_names
+        const artistNames = this.props.searchContents ? this.props.searchContents.artist_names : '';
 
         contentsIndex = this.state.matchContents ? Object.values(this.state.matchContents).map((content, idx) => <SearchContentIndexItem key={content.id} position={idx+1} artist={{ name: content.artist_name, id: content.artist_id }} album={{ title: content.album_title, id: content.album_id }} content={content}/>) : ("");
 

@@ -2,7 +2,7 @@ import React from 'react';
 import TopBar from './topbar/topbar'
 import SideBar from './sidebar/sidebar';
 import PlayBar from './playbar/playbar_container';
-import Home from './main/home';
+import Home from './main/home/home_container';
 import SearchComp from './main/search/search_container';
 import Category from './main/search/category_container';
 import Playlist from './main/playlist/playlist_container';

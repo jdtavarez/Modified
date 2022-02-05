@@ -11,8 +11,10 @@ export default class Album extends React.Component {
     }
 
     componentDidMount () {
-        const id = parseInt(this.props.match.params[0])
+        const hash_location = this.props.match.params[0]
+        const id = parseInt(hash_location)
         this.props.fetchAlbumContents(id)
+        this.setState({ hash_location })
     }
 
     componentDidUpdate (prevProps) {

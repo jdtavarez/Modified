@@ -10,8 +10,15 @@ export default class Category extends React.Component {
     }
 
     componentDidMount() {
-        const categoryId = this.categoryHelper();
-        this.props.fetchCategory(categoryId);   
+        if (!this.props.categories) {
+            this.props.fetchCategories().then(() => {
+                const categoryId = this.categoryHelper();
+                this.props.fetchCategory(categoryId); 
+            })
+        } else {
+            const categoryId = this.categoryHelper();
+            this.props.fetchCategory(categoryId);       
+        }
     }
 
     componentWillUnmount() {

@@ -8,7 +8,7 @@ const mSTP = (state) => ({
 
 const mDTP = (dispatch) =>({
     processForm: (user) => dispatch(login(user)),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
 })
 
 export default connect(mSTP, mDTP)(LoginForm);

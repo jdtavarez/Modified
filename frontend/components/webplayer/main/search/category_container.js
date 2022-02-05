@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { withRouter } from 'react-router';
 import Category from "./category";
-import { fetchCategory, clearCategory } from "../../../../actions/search_actions";
+import { fetchCategory, clearCategory, fetchCategories } from "../../../../actions/search_actions";
 
 
 const mSTP = (state) => {
@@ -15,6 +15,7 @@ const mSTP = (state) => {
 }
 
 const mDTP = (dispatch) => ({
+    fetchCategories: () => dispatch(fetchCategories()),
     fetchCategory: (categoryId) => dispatch(fetchCategory(categoryId)),
     clearCategory: () => dispatch(clearCategory())
 })
