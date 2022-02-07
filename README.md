@@ -1,24 +1,15 @@
-# README
+# Modified
+<img src="https://github.com/jdtavarez/Modified/blob/main/app/assets/images/demo/splash.png">
+<a href="https://modi-fied.herokuapp.com/#/">Modified</a> is a full-stack Spotify clone. Users can create playlists, edit their profiles, search for and discover unknown artists, and seamlessly move from page to page without playback interruption. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Technologies
+* Rails
+* Ruby
+* PostgreSQL
+* Javascript
+* Web Audio API
+* Amazon Web Services S3
+* Heroku 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Signing Up
+<img src="https://github.com/jdtavarez/Modified/blob/main/app/assets/images/demo/signin.gif">
