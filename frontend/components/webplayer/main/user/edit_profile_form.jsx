@@ -8,10 +8,9 @@ class EditProfileForm extends React.Component {
     constructor(props) {
         super(props)
 
-        const { currentUser } = this.props;
-
+        const user = this.props.profile[this.props.currentUser.id].user;
         this.state = {
-            username: currentUser.username,
+            username: user.username,
         }
 
         this.errors = {
