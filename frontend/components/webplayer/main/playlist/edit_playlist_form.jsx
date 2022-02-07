@@ -128,10 +128,12 @@ class EditPlaylistForm extends React.Component {
                             <img src={img} alt=""/>
                         </div>
                         <div className="edit-form-inputs">
+                            <div className="text-container" style={{height: '55px'}}>
                             <fieldset className="name-fieldset">
                                 <legend >Title</legend>
                                 <input type="text" name="playlist[title]" value={this.state.title} onChange={this.updateInput} onClick={this.handleFieldSet} onBlur={this.handleFieldSet}/>
                             </fieldset>
+                            </div>
                             <fieldset className="description-fieldset">
                                 <legend >Description</legend>
                                 <textarea className="longInput" type="textarea" name="playlist[description]" placeholder="Add an optional description" value={this.state.description} onChange={this.updateInput} onClick={this.handleFieldSet} onBlur={this.handleFieldSet}></textarea>
