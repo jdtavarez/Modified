@@ -1,6 +1,6 @@
 import React from "react";
-import ArtistCard from '../cards/artist_card'
-import AlbumCard from '../cards/album_card'
+import ArtistCard from '../cards/artist_card';
+import AlbumCard from '../cards/album_card';
 
 export default class Category extends React.Component {
     constructor(props) {

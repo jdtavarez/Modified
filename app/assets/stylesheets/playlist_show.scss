@@ -24,6 +24,22 @@
     box-shadow: 0 0 30px rgb(28, 28, 28);
 }
 
+.profile-cover {
+    height: 220px;
+    width: 220px;
+    margin: 30px;
+    box-shadow: 0 0 30px rgb(28, 28, 28);
+    border-radius: 200px;
+}
+
+.profile-cover:hover {
+    cursor: pointer;
+}
+
+.playlist-cover:hover {
+    cursor: pointer;
+}
+
 .top-nav {
     position: absolute;
 }
@@ -201,6 +217,14 @@
     justify-content: space-between;
 }
 
+.ap-song-info {
+    height: inherit;
+    margin-left: 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
 .pl-song-title {
     color: white;
 }
@@ -286,4 +310,20 @@
 
 .content-options {
     width: 3%;
+}
+
+#img-input {
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.upload-input-img {
+    border-radius: 200px;
+}
+
+.description {
+    height: 10px;
 }

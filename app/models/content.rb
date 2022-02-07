@@ -17,7 +17,12 @@ class Content < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :Artist
 
+    has_many :playlist_contents,
+    foreign_key: :content_id,
+    class_name: :PlaylistContent
+
     has_many :playlists, 
-    through: :playlist_content
+    through: :playlist_contents,
+    source: :playlist
     
 end

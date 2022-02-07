@@ -8,7 +8,7 @@ export default class PlaylistIndexItem extends React.Component {
     render () {  
         const { playlist } = this.props;
         return (
-            <Link to={`/web/playlist/${playlist.id}`} className="playlist-index-item">
+            <Link to={`/web/playlists/${playlist.id}`} className="playlist-index-item">
                 <li>{playlist.title}</li>
             </Link>
             

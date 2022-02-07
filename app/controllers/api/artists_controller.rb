@@ -1,15 +1,12 @@
 class Api::ArtistsController < ApplicationController
-
-    def index 
-        @artists = Artist.all
-        render json: @artists
-    end
-
+    
     def show
         @artist = Artist.find(params[:id])
-        @content = @artist.content
-        @playlist = @artist.playlists
-        render json: @artist
+        @contents = @artist.contents
+        @albums = @artist.albums
+        @playlists = @artist.playlists
+        @featured_playlists = @artist.featured_playlists.distinct
+        render 'api/artists/show'
     end
     
 end

@@ -18,4 +18,8 @@ class Artist < ApplicationRecord
 
     has_many :playlists, as: :creator
 
+    has_many :featured_playlists,
+    through: :contents,
+    source: :playlists
+
 end

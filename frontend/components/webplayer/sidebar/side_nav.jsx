@@ -13,7 +13,7 @@ export default class SideNav extends React.Component {
         this.props.createPlaylist().then(() => {
             this.newPlaylistId = Object.keys(this.props.playlists).slice(-2, -1)
             this.props.fetchCreatorPlaylists("users", this.props.currentUser.id).then(() => {
-                this.props.history.push(`/web/playlist/${this.newPlaylistId}`)
+                this.props.history.push(`/web/playlists/${this.newPlaylistId}`)
             })
         })
     }

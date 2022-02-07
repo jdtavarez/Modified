@@ -6,8 +6,11 @@ import { Link } from 'react-router-dom'
          super(props)
      }
 
-     componentWillUnmount() {
-         this.props.fetchSearchContents();
+     componentDidMount() {
+         if (this.props.currentUser) {
+             
+             this.props.fetchSearchContents();
+         }
      }
 
     render() {

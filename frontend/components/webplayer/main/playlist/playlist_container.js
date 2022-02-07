@@ -3,12 +3,11 @@ import Playlist from "./playlist";
 import { fetchPlaylistContents } from "../../../../actions/content_actions";
 import { openModal } from "../../../../actions/modal_actions";
 
-const mSTP = (state) => {
-    return ({
+const mSTP = (state) => ({
     currentUser: state.entities.users[state.session.id],
     playlist: state.entities.contents.playlist,
     contents: state.entities.contents
-}) }
+})
 
 const mDTP = (dispatch) => ({
     fetchPlaylistContents: (playlistId) => dispatch(fetchPlaylistContents(playlistId)),

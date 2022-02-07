@@ -2,6 +2,8 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../../../actions/session_actions";
+import { clearPlaylists } from "../../../actions/playlist_actions";
+import { Link } from 'react-router-dom'
 
 
 class TopBar extends React.Component {
@@ -11,6 +13,10 @@ class TopBar extends React.Component {
         this.goBack = this.goBack.bind(this);
         this.goForward = this.goForward.bind(this);
         this.handleNavClick = this.handleNavClick.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.props.clearPlaylists();
     }
 
     goBack() {
@@ -40,7 +46,7 @@ class TopBar extends React.Component {
 
     render() {
         return (
-            <div id="web-top-bar">
+            <div id="web-top-bar" onScroll={this.handleScroll}>
                 <div id="top-container">
                     <div id="navigate-buttons">
                         <i onClick={this.goBack} className="fas fa-chevron-left"></i>
@@ -53,7 +59,10 @@ class TopBar extends React.Component {
                             <i className="fas fa-angle-down" id="pro-arrow"></i>
                         </div>
                         <div className="pro-dropdown-content">
-                            <a onClick={this.props.logout}>Log out</a>
+                            <div className="pro-options-list">
+                                <Link to={`/web/users/${this.props.currentUser.id}`}>Profile</Link>   
+                                <a onClick={this.props.logout}>Log out</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,7 +76,8 @@ const mSTP = (state) => ({
 })
 
 const mDTP = (dispatch) => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    clearPlaylists: () => dispatch(clearPlaylists())
 })
 
 

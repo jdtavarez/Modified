@@ -12,6 +12,8 @@ export default class Playlist extends React.Component {
         }
         this.handleButtonClick = this.handleButtonClick.bind(this);
         this.handleClickOff = this.handleClickOff.bind(this);
+        this.ownerEdit = this.ownerEdit.bind(this);
+        this.ownerDelete = this.ownerDelete.bind(this);
     }
 
     componentDidMount () {
@@ -51,8 +53,16 @@ export default class Playlist extends React.Component {
         }
     }
 
-    handlePlay() {
+    ownerEdit() {
+        if (this.props.currentUser.id === this.props.playlist.creator_id) {
+            this.props.openModal('editPlaylist')
+        }
+    }
 
+    ownerDelete() {
+        if (this.props.currentUser.id === this.props.playlist.creator_id) {
+            this.props.openModal('deletePlaylist')
+        }
     }
 
     render () {
@@ -71,8 +81,8 @@ export default class Playlist extends React.Component {
             if (this.props.currentUser.id === creator_id) {
                 playlist_nav = (<div className="pl-nav-dropdown-content">
                     <div className="pl-options-list">
-                        <a onClick={() => this.props.openModal('editPlaylist')}>Edit details</a>
-                        <a onClick={() => this.props.openModal('deletePlaylist')}> Delete</a>
+                        <a onClick={this.ownerEdit}>Edit details</a>
+                        <a onClick={this.ownerDelete}> Delete</a>
                     </div>
                 </div>)
             }
@@ -102,11 +112,11 @@ export default class Playlist extends React.Component {
         return(
         <div id="playlist-container" onClick={this.handleClickOff}>
             <div className="playlist-display-header">
-                <img src={playlist.url} alt="" className='playlist-cover' />
+                <img src={playlist.url} onClick={this.ownerEdit} alt="" className='playlist-cover' />
                 <div className="playlist-info">
                     <h3 className="content-type">PLAYLIST</h3>
-                    <h1 onClick={this.handleClick} className="playlist-title">{playlist.title}</h1>
-                    <p>{description}</p>
+                    <h1 onClick={this.ownerEdit} className="playlist-title">{playlist.title}</h1>
+                    <p className='description'>{description}</p>
                     <div className="playlist-metadata">
                         <Link className="creator-info" to={`/web/users/${creator_id}`}>
                         <h2>{creator}</h2>

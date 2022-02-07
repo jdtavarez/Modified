@@ -19,6 +19,8 @@ PlaylistContent.destroy_all
 user1 = User.new(username: "demouser", email: "demouser@mail.com", gender: "Non-binary", birthday: "01/01/1901")
 user1.password = "password"
 user1.save!
+avatar = URI.open("https://modified-seed-data.s3.amazonaws.com/profile.jpg")
+user1.avatar.attach(io: avatar, filename: 'profile.jpg')
 
 
 artist2 = Artist.create!(username: "Ewin")
@@ -53,9 +55,9 @@ content9 = Content.create!(title: "Intro", length: 80, artist_id: artist3.id, ca
 
 content10 = Content.create!(title: "Chouce Garden", length: 185, artist_id: artist3.id, category_id: category1.id, album_pos: 3, streams: 6000, content_type: "music", album_id: album3.id, album_title: album3.title, artist_name: artist3.username, genre: category1.genre)
 
-content11 = Content.create!(title: "Jester 1", length: 45, artist_id: artist3.id, category_id: category6.id, album_pos: 3, streams: 6040, content_type: "music", album_id: album3.id, album_title: album3.title, artist_name: artist3.username, genre: category6.genre)
+content11 = Content.create!(title: "Jester 1", length: 45, artist_id: artist3.id, category_id: category6.id, album_pos: 4, streams: 6040, content_type: "music", album_id: album3.id, album_title: album3.title, artist_name: artist3.username, genre: category6.genre)
 
-content12 = Content.create!(title: "Jester 2", length: 68, artist_id: artist3.id, category_id: category6.id, album_pos: 3, streams: 6900, content_type: "music", album_id: album3.id, album_title: album3.title, artist_name: artist3.username, genre: category6.genre)
+content12 = Content.create!(title: "Jester 2", length: 68, artist_id: artist3.id, category_id: category6.id, album_pos: 5, streams: 6900, content_type: "music", album_id: album3.id, album_title: album3.title, artist_name: artist3.username, genre: category6.genre)
 
 
 cover4 = URI.open('https://modified-seed-data.s3.amazonaws.com/artists/JOC/GAME/GAME_COVER.jpg')
@@ -171,9 +173,9 @@ content23 = Content.create!(title: "Looop 1", length: 58, artist_id: artist6.id,
 
 content24 = Content.create!(title: "Looop 2", length: 59, artist_id: artist6.id, category_id: category6.id, album_pos: 2, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
 
-content25 = Content.create!(title: "Looop 3", length: 72, artist_id: artist6.id, category_id: category6.id, album_pos: 3, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+content25 = Content.create!(title: "Looop 3", length: 55, artist_id: artist6.id, category_id: category6.id, album_pos: 3, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
 
-content26 = Content.create!(title: "Looop 4", length: 32, artist_id: artist6.id, category_id: category6.id, album_pos: 4, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
+content26 = Content.create!(title: "Looop 4", length: 72, artist_id: artist6.id, category_id: category6.id, album_pos: 4, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
 
 content27 = Content.create!(title: "Looop 5", length: 32, artist_id: artist6.id, category_id: category6.id, album_pos: 5, streams: 100, content_type: "music", album_id: album9.id, album_title: album9.title, artist_name: artist6.username, genre: category6.genre)
 

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../../actions/modal_actions';
 import EditPlaylistFormContainer from './playlist/edit_playlist_form';
 import DeletePlaylistFormContainer from './playlist/delete_playlist_form';
+import EditProfileFormContainer from './user/edit_profile_form';
 
 const mSTP = (state) => ({
     modal: state.ui.modals
@@ -26,6 +27,9 @@ function Modal ({modal, closeModal}) {
             break;
         case 'deletePlaylist':
             component = <DeletePlaylistFormContainer />;
+            break;
+        case 'editProfile':
+            component = <EditProfileFormContainer />;
             break;
         default:
             return null;

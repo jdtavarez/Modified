@@ -21,18 +21,29 @@ class EditPlaylistForm extends React.Component {
             title_error: "Playlist name is required."
         }
 
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.updateInput = this.updateInput.bind(this)
-        this.handleFieldSet = this.handleFieldSet.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateInput = this.updateInput.bind(this);
+        this.handleFieldSet = this.handleFieldSet.bind(this);
+        this.handleUpload = this.handleUpload.bind(this);
+        this.handleMouseEnter = this.handleMouseEnter.bind(this);
+        this.handleMouseLeave = this.handleMouseLeave.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
         if (this.errors.title) return;
-        this.props.closeModal();
-        this.props.updatePlaylist(this.state).then(() => {
-            this.props.fetchPlaylistContents(this.state.id)
-            this.props.fetchCreatorPlaylists("users", this.props.currentUser.id)
+
+        const { id, title, description, image } = this.state;
+        const formData = new FormData();
+
+        formData.append('playlist[id]', id);
+        formData.append('playlist[title]', title);
+        formData.append('playlist[description]', description);
+        if (image) { formData.append('playlist[image]', image) };
+
+        this.props.updatePlaylist(formData, id).then(() => {
+            this.props.fetchPlaylistContents(id);
+            this.props.closeModal();
         });
     }
 
@@ -63,7 +74,33 @@ class EditPlaylistForm extends React.Component {
             fieldset.classList.remove("clicked")
             legend.classList.remove("clicked")
         }
+    }
+
+    handleMouseEnter(e) {
+        e.stopPropagation();
+        const input = document.getElementById('img-input');
+        input.hidden = false;
+    }
+
+    handleMouseLeave(e) {
+        e.stopPropagation();
+        const input = document.getElementById('img-input');
+        input.hidden = true;
+    }
+
+    handleUpload(e) {
+        const fileReader = new FileReader();
+
+        const img = e.target.files[0];
         
+        fileReader.onloadend = () => {
+            this.setState({ preview: fileReader.result, image: img })
+        }
+        if (img) {
+            fileReader.readAsDataURL(img)
+        } else {
+            this.setState({ preview: null, image: null })
+        }
     }
 
     render () {
@@ -71,6 +108,9 @@ class EditPlaylistForm extends React.Component {
 
 
         const { playlist } = this.props;
+
+        const img = this.state.preview ? this.state.preview : playlist.url;
+
         return (
             <form className="edit-form" onSubmit={this.handleSubmit}>
                 <div className="edit-form-container">
@@ -80,8 +120,9 @@ class EditPlaylistForm extends React.Component {
                     </div>
                     {error}
                     <div className="edit-form-content">
-                        <div className="edit-form-img-container">
-                            <img src={playlist.url} alt="" value="playlist[image]" />
+                        <div className="edit-form-img-container" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+                            <input className="upload-input" id="img-input" onChange={this.handleUpload} type="file" hidden />
+                            <img src={img} alt=""/>
                         </div>
                         <div className="edit-form-inputs">
                             <fieldset className="name-fieldset">
@@ -95,7 +136,7 @@ class EditPlaylistForm extends React.Component {
                         </div>
                     </div>
                     <input type="submit" value="SAVE"/>
-                    {/* <p>By proceeding, you agree to give Modified access to the image you choose to upload. Please make sure you have the right to upload the image.</p> */}
+                    <p>By proceeding, you agree to give Modified access to the image you choose to upload. Please make sure you have the right to upload the image.</p>
                 </div>
             </form>
         )
@@ -112,7 +153,7 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => ({
     fetchPlaylistContents: (playlistId) => dispatch(fetchPlaylistContents(playlistId)),
-    updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
+    updatePlaylist: (id, playlist) => dispatch(updatePlaylist(id, playlist)),
     closeModal: () => dispatch(closeModal()),
     fetchCreatorPlaylists: (creator, id) => dispatch(fetchCreatorPlaylists(creator, id))
 })

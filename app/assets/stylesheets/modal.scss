@@ -99,6 +99,13 @@
   width: 57%;
 }
 
+.edit-form-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 57%;
+}
+
 .edit-form-container input[type="text"] {
   height: 35px;
   border: none;

@@ -3,6 +3,8 @@ import usersReducer from "./users_reducer";
 import playlistsReducer from "./playlists_reducer";
 import albumsReducer from "./albums_reducer";
 import contentsReducer from "./contents_reducer";
+import artistsReducer  from "./artists_reducer";
+import profilesReducer from "./profiles_reducer";
 
 
 const entitiesReducer = (
@@ -10,7 +12,9 @@ const entitiesReducer = (
         users: usersReducer,
         playlists: playlistsReducer,
         albums: albumsReducer,
-        contents: contentsReducer
+        contents: contentsReducer,
+        artists: artistsReducer, 
+        profiles: profilesReducer,
     })
 )
 
