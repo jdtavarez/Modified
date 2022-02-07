@@ -13,6 +13,7 @@ class TopBar extends React.Component {
 
         this.state = {
             image: null,
+            username: ''
         }
 
         this.goBack = this.goBack.bind(this);
@@ -23,11 +24,11 @@ class TopBar extends React.Component {
     componentDidMount() {
         if (this.props.profile[this.props.currentUser.id]) {
             const currentUser = this.props.profile[this.props.currentUser.id].user;
-            this.setState({ image: currentUser.image_url })
+            this.setState({ image: currentUser.image_url, username: currentUser.username })
         } else {
             this.props.fetchUser(this.props.currentUser.id).then(() => {
                 const currentUser = this.props.profile[this.props.currentUser.id].user;
-                this.setState({ image: currentUser.image_url })
+                this.setState({ image: currentUser.image_url, username: currentUser.username })
             })
         }
     }
@@ -37,14 +38,16 @@ class TopBar extends React.Component {
         if (this.props.profile[id]) {
             const { user } = this.props.profile[id];
             const image = user.image_url;
+            const username = user.username;
 
             if (prevProps.profile[id]) {
                 const oldUser = prevProps.profile[id].user;
+                const oldUsername = oldUser.username;
                 const oldImage = oldUser.image_url;
 
-                if (image !== oldImage) {
+                if (image !== oldImage || username !== oldUsername) {
                     this.props.fetchUser(id).then(() => {
-                        this.setState({ image });
+                        this.setState({ image, username });
                     })
                 }
             }
@@ -92,7 +95,7 @@ class TopBar extends React.Component {
                         <div id="profile-button" onClick={this.handleNavClick}>
                             <img className="top-profile-photo" src={
                                 this.state.image ? this.state.image : window.profiles} />
-                            <p className="top-username">{this.props.currentUser.username}</p>
+                            <p className="top-username">{this.state.username}</p>
                             <i className="fas fa-angle-down" id="pro-arrow"></i>
                         </div>
                         <div className="pro-dropdown-content">
