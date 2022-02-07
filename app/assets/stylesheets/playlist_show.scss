@@ -348,6 +348,16 @@
     appearance: none;
 }
 
+input[type=file] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.upload-input-img {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 .upload-input-img {
     border-radius: 200px;
 }

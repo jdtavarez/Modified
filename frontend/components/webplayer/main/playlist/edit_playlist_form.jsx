@@ -78,14 +78,16 @@ class EditPlaylistForm extends React.Component {
 
     handleMouseEnter(e) {
         e.stopPropagation();
-        const input = document.getElementById('img-input');
-        input.hidden = false;
+        const inputs = document.getElementsByClassName("upload-input");
+        inputs[0].hidden = false;
+        inputs[1].hidden = false;
     }
 
     handleMouseLeave(e) {
         e.stopPropagation();
-        const input = document.getElementById('img-input');
-        input.hidden = true;
+        const inputs = document.getElementsByClassName("upload-input");
+        inputs[0].hidden = true;
+        inputs[1].hidden = true;
     }
 
     handleUpload(e) {
@@ -121,7 +123,8 @@ class EditPlaylistForm extends React.Component {
                     {error}
                     <div className="edit-form-content">
                         <div className="edit-form-img-container" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-                            <input className="upload-input" id="img-input" onChange={this.handleUpload} type="file" hidden />
+                            <img src={window.editphoto} alt="" className="upload-input" id="img-input" hidden />
+                            <input className="upload-input" id="img-input" onChange={this.handleUpload} type="file" hidden style={{opacity: 0}} />
                             <img src={img} alt=""/>
                         </div>
                         <div className="edit-form-inputs">
