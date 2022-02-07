@@ -6,7 +6,13 @@ const contentsReducer = (state = {}, action) => {
     let contentIds
     switch (action.type) {
         case RECEIVE_CONTENTS:
-            action.contents.contents ? contentIds = Object.keys(action.contents.contents) : contentIds = null;
+            if (action.contents.contents) {
+                contentIds = Object.keys(action.contents.contents)
+            } else if (action.contents) {
+                contentIds = Object.keys(action.contents)
+            } else {
+                contentIds = null
+            }
             return Object.assign({}, action.contents, {contentIds: contentIds})
         case RECEIVE_CONTENTS_STABLE:
             action.contents.contents ? contentIds = Object.keys(action.contents.contents) : contentIds = null

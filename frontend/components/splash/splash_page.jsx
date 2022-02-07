@@ -6,9 +6,6 @@ const SplashPage = () => (
     <div id="splash-container">
         <NavBarContainer/>
         <SplashMainContainer/>
-        <footer>
-            
-        </footer>
     </div>
 );
 

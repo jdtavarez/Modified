@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import User from './user'
 import { fetchUser, clearUser } from "../../../../actions/user_actions";
 import { openModal } from "../../../../actions/modal_actions";
+import { withRouter } from 'react-router';
 
 const mSTP = (state) => {
     return ({
@@ -18,4 +19,4 @@ const mDTP = (dispatch) => ({
     openModal: (modal) => dispatch(openModal(modal))
 })
 
-export default connect(mSTP, mDTP)(User);
+export default withRouter(connect(mSTP, mDTP)(User));

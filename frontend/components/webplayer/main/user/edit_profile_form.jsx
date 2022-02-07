@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchUser, updateUser } from "../../../../actions/user_actions"
+import { fetchUser, updateUser, clearUser } from "../../../../actions/user_actions"
 import { closeModal } from '../../../../actions/modal_actions';
 import { withRouter } from 'react-router';
 
@@ -28,6 +28,7 @@ class EditProfileForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        e.stopPropagation();
         if (this.errors.title) return;
 
         const { username, image } = this.state;
@@ -37,8 +38,8 @@ class EditProfileForm extends React.Component {
         if (image) { formData.append('user[avatar]', image) };
 
         this.props.updateUser(formData, this.props.currentUser.id).then(() => {
-            this.props.fetchUser(this.props.currentUser.id);
             this.props.closeModal();
+            this.props.fetchUser(this.props.currentUser.id);
         });
     }
 
@@ -126,6 +127,7 @@ const mDTP = (dispatch) => ({
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     updateUser: (user, userId) => dispatch(updateUser(user, userId)),
     closeModal: () => dispatch(closeModal()),
+    clearUser: () => dispatch(clearUser())
 })
 
 export default withRouter(connect(mSTP, mDTP)(EditProfileForm));

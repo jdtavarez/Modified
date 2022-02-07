@@ -3,16 +3,52 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../../../actions/session_actions";
 import { clearPlaylists } from "../../../actions/playlist_actions";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { fetchUser } from "../../../actions/user_actions";
 
 
 class TopBar extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            image: null,
+        }
+
         this.goBack = this.goBack.bind(this);
         this.goForward = this.goForward.bind(this);
         this.handleNavClick = this.handleNavClick.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.props.profile[this.props.currentUser.id]) {
+            const currentUser = this.props.profile[this.props.currentUser.id].user;
+            this.setState({ image: currentUser.image_url })
+        } else {
+            this.props.fetchUser(this.props.currentUser.id).then(() => {
+                const currentUser = this.props.profile[this.props.currentUser.id].user;
+                this.setState({ image: currentUser.image_url })
+            })
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        const id = this.props.currentUser.id;
+        if (this.props.profile[id]) {
+            const { user } = this.props.profile[id];
+            const image = user.image_url;
+
+            if (prevProps.profile[id]) {
+                const oldUser = prevProps.profile[id].user;
+                const oldImage = oldUser.image_url;
+
+                if (image !== oldImage) {
+                    this.props.fetchUser(id).then(() => {
+                        this.setState({ image });
+                    })
+                }
+            }
+        }
     }
 
     componentWillUnmount() {
@@ -54,7 +90,8 @@ class TopBar extends React.Component {
                     </div>
                     <div className="profile-dropdown">
                         <div id="profile-button" onClick={this.handleNavClick}>
-                            <img className="top-profile-photo" src={window.profiles} />
+                            <img className="top-profile-photo" src={
+                                this.state.image ? this.state.image : window.profiles} />
                             <p className="top-username">{this.props.currentUser.username}</p>
                             <i className="fas fa-angle-down" id="pro-arrow"></i>
                         </div>
@@ -73,11 +110,13 @@ class TopBar extends React.Component {
 
 const mSTP = (state) => ({
     currentUser: state.entities.users[state.session.id],
+    profile: state.entities.profiles
 })
 
 const mDTP = (dispatch) => ({
     logout: () => dispatch(logout()),
-    clearPlaylists: () => dispatch(clearPlaylists())
+    clearPlaylists: () => dispatch(clearPlaylists()),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
 })
 
 

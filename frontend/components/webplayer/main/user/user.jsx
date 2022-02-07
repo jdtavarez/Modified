@@ -26,19 +26,33 @@ export default class User extends React.Component {
     }
 
     componentDidUpdate (prevProps) {
+        const id = parseInt(this.props.match.params[0]);
+
         if (this.props.match.params[0] !== prevProps.match.params[0]) {
-            const id = parseInt(this.props.match.params[0])
             this.props.fetchUser(id).then(() => {
                 const { playlists, user } = this.props.profile[id];
                 const username = user.username;
                 const image = user.image_url;
                 this.setState({ playlists, username, image });
             })
-        }
-    }
+        } else {
+        if (this.props.profile[id]) {
+            const { user } = this.props.profile[id];
+            const username = user.username;
+            const image = user.image_url;
 
-    componentWillUnmount () {
-        this.props.clearUser();
+            if (prevProps.profile[id]) {
+                const oldUser = prevProps.profile[id].user;
+                const oldUsername = oldUser.username;
+                const oldImage = oldUser.image_url;
+
+                if (username !== oldUsername || image !== oldImage) {
+                    this.props.fetchUser(id).then(() => {
+                        this.setState({ username, image });
+                    })}
+                }
+            }
+        }
     }
 
     ownerEdit() {
@@ -65,7 +79,7 @@ export default class User extends React.Component {
                         </div>
                     </div>
                 </div>
-                < h2 className="items-header">Playlists Created</h2 >
+                < h2 className="items-header">{playlistsIndex.length > 0 ? `Playlists Created`: ''}</h2 >
                 <div className="albums-sideways">
                     {playlistsIndex}
                 </div>

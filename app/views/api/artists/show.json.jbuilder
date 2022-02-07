@@ -4,7 +4,7 @@ json.set! :artist do
 end
 json.set! :contents do
     @contents.each do |content|
-        json.set! content.title do 
+        json.set! content.id do 
             json.id content.id
             json.title content.title
             json.length content.length
@@ -50,22 +50,6 @@ json.set! :featured_playlists do
             creator = playlist.creator
             json.creator_name creator.username
             json.creator_id creator.id
-        end
-    end
-end
-json.set! :contents do
-    @contents.each do |content|
-        json.set! content.title do 
-            json.id content.id
-            json.title content.title
-            json.length content.length
-            json.album_id content.album_id
-            json.album_title content.album_title
-            json.artist_id content.artist_id
-            json.artist_name content.artist_name
-            json.media_url url_for(content.media)
-            json.image_url url_for(content.album.image)
-            json.streams content.streams
         end
     end
 end
