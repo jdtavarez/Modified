@@ -22,7 +22,6 @@ user1.save!
 avatar = URI.open("https://modified-seed-data.s3.amazonaws.com/profile.jpg")
 user1.avatar.attach(io: avatar, filename: 'profile.jpg')
 
-
 artist2 = Artist.create!(username: "Ewin")
 artist3 = Artist.create!(username: "JOC")
 
