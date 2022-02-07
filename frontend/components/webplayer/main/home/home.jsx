@@ -48,7 +48,7 @@ export default class Home extends React.Component {
 
             if (hours > 0 && hours < 11) {
                 greeting = 'Good morning'
-            } else if (hours < 18) {
+            } else if (hours < 18 && hours > 11) {
                 greeting = 'Good afternoon'
             } else {
                 greeting = 'Good evening'
